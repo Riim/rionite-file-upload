@@ -13,8 +13,8 @@ import template = require('./index.html');
 let i18n = {
 	dropFilesHereOr: getText.t('Перетащите файлы в эту область или'),
 	btnSelectFilesText: getText.t('нажмите для выбора в проводнике'),
-	typeErrorMessage: getText.t('Файл "{name}" не подходит по типу'),
-	sizeErrorMessage: getText.t('Файл "{name}" слишком большой')
+	typeErrorMessage: getText.t('Файл не подходит по типу'),
+	sizeErrorMessage: getText.t('Файл слишком большой')
 };
 
 @d.Component<RioniteFileUpload>({
@@ -97,8 +97,8 @@ export default class RioniteFileUpload extends Component {
 	}
 
 	_addFiles(files: FileList) {
-		let reFileType = this._reFileType;
 		let sizeLimit = this.props['size-limit'];
+		let reFileType = this._reFileType;
 		let errorMessage: string | undefined;
 
 		for (let i = 0, l = files.length; i < l; i++) {
@@ -111,7 +111,7 @@ export default class RioniteFileUpload extends Component {
 			}
 
 			if (errorMessage) {
-				this.errorMessage = errorMessage.replace('{name}', file.name);
+				this.errorMessage = errorMessage;
 				this.error = true;
 				break;
 			}
