@@ -14,3 +14,7 @@ npm install cellx cellx-indexed-collections rionite rionite-file-upload --save
 
 <rionite-file-upload type-pattern="image/*" size-limit="100000000"></rionite-file-upload>
 ```
+
+## Demo
+
+[Demo](https://riim.github.io/rionite-file-upload/demo.html)
