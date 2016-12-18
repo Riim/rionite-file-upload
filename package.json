@@ -1,9 +1,9 @@
 {
   "name": "rionite-file-upload",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "",
-  "main": "index.js",
-  "typings": "dist/index.d.ts",
+  "main": "dist/components/rionite-file-upload/index.js",
+  "typings": "dist/components/rionite-file-upload/index.d.ts",
   "scripts": {
     "build": "node_modules/.bin/gulp && node_modules/.bin/webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -37,12 +37,12 @@
     "simple-css-loader": "^0.1.1",
     "simple-svg-loader": "^1.0.2",
     "typescript": "^2.1.4",
-    "webpack": "^2.2.0-rc.0",
+    "webpack": "^2.2.0-rc.1",
     "yargs": "^6.5.0"
   },
   "dependencies": {
     "cellx": "^1.6.84",
     "cellx-indexed-collections": "^1.0.8",
-    "rionite": "^0.16.23"
+    "rionite": "^0.16.24"
   }
 }
