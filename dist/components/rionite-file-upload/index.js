@@ -238,7 +238,7 @@ var RioniteFileUpload = (function (_super) {
     }
     RioniteFileUpload.prototype.initialize = function () {
         this.files = new cellx_indexed_collections_1.IndexedList();
-        var typePattern = this.props['type-pattern'];
+        var typePattern = this.props['typePattern'];
         if (typePattern) {
             this._reFileType = RegExp("^" + escapeRegExp_1.default(typePattern).split('\\*').join('.*') + "$");
         }
@@ -251,7 +251,7 @@ var RioniteFileUpload = (function (_super) {
         this.files.remove(this.files.get(btn.dataset['fileId'], 'id'));
     };
     RioniteFileUpload.prototype._addFiles = function (files) {
-        var sizeLimit = this.props['size-limit'];
+        var sizeLimit = this.props['sizeLimit'];
         var reFileType = this._reFileType;
         var errorMessage;
         for (var i = 0, l = files.length; i < l; i++) {
