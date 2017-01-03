@@ -149,7 +149,7 @@ exports.default = escapeRegExp;
 /* 3 */
 /***/ function(module, exports) {
 
-module.exports = "<input class=\"rionite-file-upload__files-input\" type=\"file\" multiple=\"\"> <div class=\"rionite-file-upload__drop-zone\" error=\"{error}\"> <div class=\"rionite-file-upload__drop-zone-error-message-wrapper\"> <span class=\"rionite-file-upload__drop-zone-error-message\">{errorMessage}</span> </div> <span class=\"rionite-file-upload__drop-zone-text\"> {{i18n.dropFilesHereOr}}<br> <button class=\"rionite-file-upload__btn-select-files\">{{i18n.btnSelectFilesText}}</button> </span> </div> <ul class=\"rionite-file-upload__file-list\"> <template is=\"rt-repeat\" for=\"file of files\" track-by=\"id\" strip=\"\"> <li class=\"rionite-file-upload__file\"> <div class=\"rionite-file-upload__file-preview-wrapper\"> <template is=\"rt-if-then\" if=\"file.readed\"> <template is=\"rt-if-then\" if=\"file.isImage\"> <img class=\"rionite-file-upload__file-preview\" _src=\"{file.dataURI}\"> </template> <template is=\"rt-if-else\" if=\"file.isImage\"> <svg viewBox=\"0 0 32 32\" class=\"rionite-file-upload__file-icon\"><use xlink:href=\"#rionite-file-upload__icon-file\"></use></svg> </template> </template> <template is=\"rt-if-else\" if=\"file.readed\"> <svg viewBox=\"0 0 32 32\" class=\"rionite-file-upload__file-loading-icon\"><use xlink:href=\"#rionite-file-upload__icon-spinner\"></use></svg> </template> </div> <span class=\"rionite-file-upload__file-text\"> <strong>{file.name}</strong> </span> <button class=\"rionite-file-upload__btn-remove-file\" data-file-id=\"{file.id}\" rt-click=\"_onBtnRemoveFileClick\"> <svg viewBox=\"0 0 32 32\" class=\"rionite-file-upload__btn-remove-file-icon\"><use xlink:href=\"#rionite-file-upload__icon-trash\"></use></svg> </button> </li> </template> </ul>"
+module.exports = "input /files-input (type=file, multiple) div /drop-zone (error={error}) { div /drop-zone-error-message-wrapper { span /drop-zone-error-message { '{errorMessage}' } } span /drop-zone-text { '{constructor.i18n.dropFilesHereOr}' br button /btn-select-files { '{constructor.i18n.btnSelectFilesText}' } } } ul /file-list { template (is=rt-repeat, for=file of files, track-by=id, strip) { li /file { div /file-preview-wrapper { template (is=rt-if-then, if=file.readed) { template (is=rt-if-then, if=file.isImage) { img /file-preview (_src={file.dataURI}) } template (is=rt-if-else, if=file.isImage) { svg /file-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-file) } } } template (is=rt-if-else, if=file.readed) { svg /file-loading-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-spinner) } } } span /file-text { strong { '{file.name}' } } button /btn-remove-file (data-file-id={file.id}, rt-click=_onBtnRemoveFileClick) { svg /btn-remove-file-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-trash) } } } } }"
 
 /***/ },
 /* 4 */
@@ -286,7 +286,7 @@ RioniteFileUpload = __decorate([
             sizeLimit: Number
         },
         i18n: i18n,
-        template: new rionite_1.ComponentTemplate(template),
+        bemlTemplate: template,
         events: {
             'files-input': {
                 change: function (evt) {

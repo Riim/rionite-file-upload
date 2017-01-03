@@ -5,10 +5,10 @@ import './index.css';
 
 import { define } from 'cellx';
 import { IndexedList } from 'cellx-indexed-collections';
-import { getText, Component, d, ComponentTemplate } from 'rionite';
+import { getText, Component, d } from 'rionite';
 import ReadableFile from './ReadableFile';
 import escapeRegExp from './escapeRegExp';
-import template = require('./index.html');
+import template = require('./index.beml');
 
 let i18n = {
 	dropFilesHereOr: getText.t('Перетащите файлы в эту область или'),
@@ -27,7 +27,7 @@ let i18n = {
 
 	i18n,
 
-	template: new ComponentTemplate(template),
+	bemlTemplate: template,
 
 	events: {
 		'files-input': {

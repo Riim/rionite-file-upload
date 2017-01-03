@@ -53,6 +53,10 @@ module.exports = function(env) {
 					loader: 'raw-loader!collapse-html-whitespaces-loader'
 				},
 				{
+					test: /\.beml$/,
+					loader: 'raw-loader!collapse-html-whitespaces-loader'
+				},
+				{
 					test: /\.css$/,
 					loader: 'simple-css-loader!postcss-loader'
 				},
