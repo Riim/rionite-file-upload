@@ -54,7 +54,7 @@ module.exports = function(env) {
 				},
 				{
 					test: /\.beml$/,
-					loader: 'raw-loader!collapse-html-whitespaces-loader'
+					loader: 'raw-loader!collapse-line-breaks-loader!trim-lines-loader'
 				},
 				{
 					test: /\.css$/,
