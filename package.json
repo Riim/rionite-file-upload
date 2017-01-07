@@ -1,6 +1,6 @@
 {
   "name": "rionite-file-upload",
-  "version": "0.18.4",
+  "version": "0.18.5",
   "description": "",
   "main": "dist/components/rionite-file-upload/index.js",
   "typings": "dist/components/rionite-file-upload/index.d.ts",
@@ -24,7 +24,7 @@
     "collapse-line-breaks-loader": "^0.1.1",
     "glob": "^7.1.1",
     "gulp": "^3.9.1",
-    "gulp-typescript": "^3.1.3",
+    "gulp-typescript": "^3.1.4",
     "gulp-webpack": "^1.5.0",
     "merge2": "^1.0.3",
     "postcss-color-function": "^2.0.1",
@@ -45,6 +45,6 @@
   "dependencies": {
     "cellx": "^1.6.88",
     "cellx-indexed-collections": "^1.0.8",
-    "rionite": "^0.18.5"
+    "rionite": "^0.18.9"
   }
 }

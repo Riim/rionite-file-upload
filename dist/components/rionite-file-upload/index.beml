@@ -1,39 +1,39 @@
-input /files-input (type=file, multiple)
+input/files-input (type=file, multiple)
 
-div /drop-zone (error={error}) {
-	div /drop-zone-error-message-wrapper {
-		span /drop-zone-error-message { '{errorMessage}' }
+div/drop-zone (error={error}) {
+	div/drop-zone-error-message-wrapper {
+		span/drop-zone-error-message { '{errorMessage}' }
 	}
 
-	span /drop-zone-text {
+	span/drop-zone-text {
 		'{constructor.i18n.dropFilesHereOr}' br
-		button /btn-select-files { '{constructor.i18n.btnSelectFilesText}' }
+		button/btn-select-files { '{constructor.i18n.btnSelectFilesText}' }
 	}
 }
 
-ul /file-list {
+ul/file-list {
 	template (is=rt-repeat, for=file of files, track-by=id, strip) {
-		li /file {
-			div /file-preview-wrapper {
+		li/file {
+			div/file-preview-wrapper {
 				template (is=rt-if-then, if=file.readed) {
 					template (is=rt-if-then, if=file.isImage) {
-						img /file-preview (_src={file.dataURI})
+						img/file-preview (_src={file.dataURI})
 					}
 
 					template (is=rt-if-else, if=file.isImage) {
-						svg /file-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-file) }
+						svg/file-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-file) }
 					}
 				}
 
 				template (is=rt-if-else, if=file.readed) {
-					svg /file-loading-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-spinner) }
+					svg/file-loading-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-spinner) }
 				}
 			}
 
-			span /file-text { strong { '{file.name}' } }
+			span/file-text { strong { '{file.name}' } }
 
-			button /btn-remove-file (data-file-id={file.id}, rt-click=_onBtnRemoveFileClick) {
-				svg /btn-remove-file-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-trash) }
+			button/btn-remove-file (data-file-id={file.id}, rt-click=_onBtnRemoveFileClick) {
+				svg/btn-remove-file-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-trash) }
 			}
 		}
 	}
