@@ -1,16 +1,3 @@
-input/files-input (type=file, multiple)
-
-div/drop-zone (error={error}) {
-	div/drop-zone-error-message-wrapper {
-		span/drop-zone-error-message { '{errorMessage}' }
-	}
-
-	span/drop-zone-text {
-		'{constructor.i18n.dropFilesHereOr}' br
-		button/btn-select-files { '{constructor.i18n.btnSelectFilesText}' }
-	}
-}
-
 ul/file-list {
 	template (is=rt-repeat, for=file of files, track-by=id, strip) {
 		li/file {
@@ -36,5 +23,18 @@ ul/file-list {
 				svg/btn-remove-file-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-trash) }
 			}
 		}
+	}
+}
+
+input/files-input (type=file, multiple)
+
+div/drop-zone (error={error}) {
+	div/drop-zone-error-message-wrapper {
+		span/drop-zone-error-message { '{errorMessage}' }
+	}
+
+	span/drop-zone-text {
+		'{constructor.i18n.dropFilesHereOr}' br
+		button/btn-select-files { '{constructor.i18n.btnSelectFilesText}' }
 	}
 }

@@ -14,7 +14,8 @@ let i18n = {
 	dropFilesHereOr: getText.t('Перетащите файлы в эту область или'),
 	btnSelectFilesText: getText.t('нажмите для выбора в проводнике'),
 	typeErrorMessage: getText.t('Файл не подходит по типу'),
-	sizeErrorMessage: getText.t('Файл слишком большой')
+	sizeErrorMessage: getText.t('Файл слишком большой'),
+	totalSizeErrorMessage: getText.t('Превышен лимит суммарного размера файлов')
 };
 
 @d.Component<RioniteFileUpload>({
@@ -22,7 +23,8 @@ let i18n = {
 
 	props: {
 		typePattern: { type: String, readonly: true },
-		sizeLimit: Number
+		sizeLimit: Number,
+		totalSizeLimit: Number
 	},
 
 	i18n,
@@ -74,6 +76,8 @@ export default class RioniteFileUpload extends Component {
 
 	_reFileType: RegExp;
 
+	_size: number;
+
 	errorMessage: string | null;
 	error: boolean;
 
@@ -93,21 +97,29 @@ export default class RioniteFileUpload extends Component {
 	}
 
 	_onBtnRemoveFileClick(evt: Event, btn: HTMLElement) {
-		this.files.remove(this.files.get(btn.dataset['fileId'], 'id'));
+		let file = this.files.get(btn.dataset['fileId'], 'id');
+		this._size -= file.size;
+		this.files.remove(file);
 	}
 
 	_addFiles(files: FileList) {
 		let sizeLimit = this.props['sizeLimit'];
+		let totalSizeLimit = this.props['totalSizeLimit'];
 		let reFileType = this._reFileType;
+		let size = this._size;
 		let errorMessage: string | undefined;
 
 		for (let i = 0, l = files.length; i < l; i++) {
 			let file = files[i];
 
+			size += file.size;
+
 			if (reFileType && !reFileType.test(file.type)) {
 				errorMessage = i18n.typeErrorMessage;
-			} else if (file.size > sizeLimit) {
+			} else if (sizeLimit && file.size > sizeLimit) {
 				errorMessage = i18n.sizeErrorMessage;
+			} else if (totalSizeLimit && size > totalSizeLimit) {
+				errorMessage = i18n.totalSizeErrorMessage;
 			}
 
 			if (errorMessage) {
@@ -118,6 +130,8 @@ export default class RioniteFileUpload extends Component {
 		}
 
 		if (!errorMessage) {
+			this._size = size;
+
 			for (let i = 0, l = files.length; i < l; i++) {
 				let readableFile = new ReadableFile(files[i]);
 				readableFile.read();

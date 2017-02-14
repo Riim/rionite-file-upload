@@ -1,6 +1,6 @@
 {
   "name": "rionite-file-upload",
-  "version": "0.20.0",
+  "version": "0.20.1",
   "description": "",
   "main": "dist/components/rionite-file-upload/index.js",
   "typings": "dist/components/rionite-file-upload/index.d.ts",
@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/Riim/rionite-file-upload#readme",
   "devDependencies": {
-    "autoprefixer": "^6.7.0",
+    "autoprefixer": "^6.7.2",
     "collapse-html-whitespaces-loader": "^0.1.2",
     "collapse-line-breaks-loader": "^0.1.1",
     "glob": "^7.1.1",
@@ -27,10 +27,10 @@
     "gulp-typescript": "^3.1.4",
     "gulp-webpack": "^1.5.0",
     "merge2": "^1.0.3",
-    "postcss-color-function": "^2.0.1",
+    "postcss-color-function": "^3.0.0",
     "postcss-css-variables": "^0.6.0",
     "postcss-csso": "^1.1.2",
-    "postcss-loader": "^1.2.2",
+    "postcss-loader": "^1.3.0",
     "postcss-nesting": "^2.3.1",
     "raw-loader": "^0.5.1",
     "rimraf": "^2.5.4",
@@ -38,13 +38,13 @@
     "simple-css-loader": "^0.1.1",
     "simple-svg-loader": "^1.0.2",
     "trim-lines-loader": "^0.1.0",
-    "typescript": "^2.1.5",
-    "webpack": "^2.2.0",
+    "typescript": "^2.2.0",
+    "webpack": "^2.2.1",
     "yargs": "^6.6.0"
   },
   "dependencies": {
-    "cellx": "^1.6.90",
+    "cellx": "^1.6.92",
     "cellx-indexed-collections": "^1.0.8",
-    "rionite": "^0.20.4"
+    "rionite": "^0.20.8"
   }
 }

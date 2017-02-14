@@ -88,11 +88,16 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_0__;
 
 "use strict";
 
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var cellx_1 = __webpack_require__(0);
 var nextUID = cellx_1.Utils.nextUID;
 var imageTypePrefix = 'image/';
@@ -149,7 +154,7 @@ exports.default = escapeRegExp;
 /* 3 */
 /***/ (function(module, exports) {
 
-module.exports = "input/files-input (type=file, multiple)\ndiv/drop-zone (error={error}) {\ndiv/drop-zone-error-message-wrapper {\nspan/drop-zone-error-message { '{errorMessage}' }\n}\nspan/drop-zone-text {\n'{constructor.i18n.dropFilesHereOr}' br\nbutton/btn-select-files { '{constructor.i18n.btnSelectFilesText}' }\n}\n}\nul/file-list {\ntemplate (is=rt-repeat, for=file of files, track-by=id, strip) {\nli/file {\ndiv/file-preview-wrapper {\ntemplate (is=rt-if-then, if=file.readed) {\ntemplate (is=rt-if-then, if=file.isImage) {\nimg/file-preview (_src={file.dataURI})\n}\ntemplate (is=rt-if-else, if=file.isImage) {\nsvg/file-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-file) }\n}\n}\ntemplate (is=rt-if-else, if=file.readed) {\nsvg/file-loading-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-spinner) }\n}\n}\nspan/file-text { strong { '{file.name}' } }\nbutton/btn-remove-file (data-file-id={file.id}, rt-click=_onBtnRemoveFileClick) {\nsvg/btn-remove-file-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-trash) }\n}\n}\n}\n}"
+module.exports = "ul/file-list {\ntemplate (is=rt-repeat, for=file of files, track-by=id, strip) {\nli/file {\ndiv/file-preview-wrapper {\ntemplate (is=rt-if-then, if=file.readed) {\ntemplate (is=rt-if-then, if=file.isImage) {\nimg/file-preview (_src={file.dataURI})\n}\ntemplate (is=rt-if-else, if=file.isImage) {\nsvg/file-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-file) }\n}\n}\ntemplate (is=rt-if-else, if=file.readed) {\nsvg/file-loading-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-spinner) }\n}\n}\nspan/file-text { strong { '{file.name}' } }\nbutton/btn-remove-file (data-file-id={file.id}, rt-click=_onBtnRemoveFileClick) {\nsvg/btn-remove-file-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-trash) }\n}\n}\n}\n}\ninput/files-input (type=file, multiple)\ndiv/drop-zone (error={error}) {\ndiv/drop-zone-error-message-wrapper {\nspan/drop-zone-error-message { '{errorMessage}' }\n}\nspan/drop-zone-text {\n'{constructor.i18n.dropFilesHereOr}' br\nbutton/btn-select-files { '{constructor.i18n.btnSelectFilesText}' }\n}\n}"
 
 /***/ }),
 /* 4 */
@@ -160,7 +165,7 @@ module.exports = (function(d) {
         if (head) {
             var style = d.createElement('style');
             style.type = 'text/css';
-            style.textContent = "@keyframes rionite-file-upload__file-loading-icon-animation{0%{transform:rotate(0)}to{transform:rotate(360deg)}}.rionite-file-upload{display:block;box-sizing:border-box;padding:12px;min-width:400px;border:1px solid #ccc;color:#4d4d4d;font-size:1rem;line-height:1.5}.rionite-file-upload .rionite-file-upload__files-input{display:none}.rionite-file-upload .rionite-file-upload__drop-zone{position:relative;padding:25px;border:2px dashed #999;border-radius:5px;background:#f2f2f2;color:gray;text-align:center;cursor:pointer}.rionite-file-upload .rionite-file-upload__drop-zone-error-message-wrapper{position:absolute;top:0;right:0;bottom:0;left:0;display:none;border-radius:inherit;background:inherit;white-space:nowrap;font-size:0}.rionite-file-upload .rionite-file-upload__drop-zone-error-message-wrapper::after{display:inline-block;width:0;height:100%;content:'';vertical-align:middle}.rionite-file-upload .rionite-file-upload__drop-zone-error-message{color:red;vertical-align:middle;font-size:1rem}.rionite-file-upload .rionite-file-upload__btn-select-files{display:inline;padding:0;border:0;background:0 0;color:#168cf3;font:inherit;cursor:inherit}.rionite-file-upload .rionite-file-upload__drop-zone[over]{border-color:#168cf3}.rionite-file-upload .rionite-file-upload__drop-zone[over] .rionite-file-upload__drop-zone-text{pointer-events:none}.rionite-file-upload .rionite-file-upload__drop-zone[error] .rionite-file-upload__drop-zone-error-message-wrapper{display:block}.rionite-file-upload .rionite-file-upload__file-list{margin:0;padding:0;list-style:none}.rionite-file-upload .rionite-file-upload__file{position:relative;margin-top:10px;padding:12px 52px 12px 20px;border-radius:3px;background:#f2f2f2}.rionite-file-upload .rionite-file-upload__file-preview-wrapper{position:relative;display:inline-block;margin-right:.25em;width:48px;height:48px;vertical-align:middle}.rionite-file-upload .rionite-file-upload__file-preview,.rionite-file-upload .rionite-file-upload__file-icon,.rionite-file-upload .rionite-file-upload__file-loading-icon{position:absolute;top:0;right:0;bottom:0;left:0;display:block;margin:auto}.rionite-file-upload .rionite-file-upload__file-preview{max-width:48px;max-height:48px;border:0;border-radius:3px}.rionite-file-upload .rionite-file-upload__file-icon{width:48px;height:48px;fill:currentColor}.rionite-file-upload .rionite-file-upload__file-loading-icon{width:20px;height:20px;animation:rionite-file-upload__file-loading-icon-animation 1.2s infinite linear;fill:currentColor}.rionite-file-upload .rionite-file-upload__file-text{vertical-align:middle}.rionite-file-upload .rionite-file-upload__btn-remove-file{position:absolute;top:0;right:10px;bottom:0;display:block;margin:auto;padding:10px;width:42px;height:42px;border:0;background:0 0;cursor:pointer}.rionite-file-upload .rionite-file-upload__btn-remove-file-icon{display:block;width:22px;height:22px;transition:fill .1s;fill:#999}.rionite-file-upload .rionite-file-upload__btn-remove-file:hover .rionite-file-upload__btn-remove-file-icon{fill:#4d4d4d}";
+            style.textContent = ".rionite-file-upload{display:block;box-sizing:border-box;padding:12px;min-width:400px;border:1px solid #ccc;color:#4d4d4d;font-size:1rem;line-height:1.5}.rionite-file-upload .rionite-file-upload__file-list{margin:0;padding:0;list-style:none}.rionite-file-upload .rionite-file-upload__file{position:relative;margin-bottom:10px;padding:12px 52px 12px 20px;border-radius:3px;background:#f2f2f2}.rionite-file-upload .rionite-file-upload__file-preview-wrapper{position:relative;display:inline-block;margin-right:.25em;width:48px;height:48px;vertical-align:middle}.rionite-file-upload .rionite-file-upload__file-preview,.rionite-file-upload .rionite-file-upload__file-icon,.rionite-file-upload .rionite-file-upload__file-loading-icon{position:absolute;top:0;right:0;bottom:0;left:0;display:block;margin:auto}.rionite-file-upload .rionite-file-upload__file-preview{max-width:48px;max-height:48px;border:0;border-radius:3px}.rionite-file-upload .rionite-file-upload__file-icon{width:48px;height:48px;fill:currentColor}.rionite-file-upload .rionite-file-upload__file-loading-icon{width:20px;height:20px;animation:rionite-file-upload__file-loading-icon-animation 1.2s infinite linear;fill:currentColor}.rionite-file-upload .rionite-file-upload__file-text{vertical-align:middle}.rionite-file-upload .rionite-file-upload__btn-remove-file{position:absolute;top:0;right:10px;bottom:0;display:block;margin:auto;padding:10px;width:42px;height:42px;border:0;background:0 0;cursor:pointer}.rionite-file-upload .rionite-file-upload__btn-remove-file-icon{display:block;width:22px;height:22px;transition:fill .1s;fill:#999}.rionite-file-upload .rionite-file-upload__btn-remove-file:hover .rionite-file-upload__btn-remove-file-icon{fill:#4d4d4d}.rionite-file-upload .rionite-file-upload__files-input{display:none}.rionite-file-upload .rionite-file-upload__drop-zone{position:relative;padding:25px;border:2px dashed #999;border-radius:5px;background:#f2f2f2;color:gray;text-align:center;cursor:pointer}.rionite-file-upload .rionite-file-upload__drop-zone-error-message-wrapper{position:absolute;top:0;right:0;bottom:0;left:0;display:none;border-radius:inherit;background:inherit;white-space:nowrap;font-size:0}.rionite-file-upload .rionite-file-upload__drop-zone-error-message-wrapper::after{display:inline-block;width:0;height:100%;content:'';vertical-align:middle}.rionite-file-upload .rionite-file-upload__drop-zone-error-message{color:red;vertical-align:middle;font-size:1rem}.rionite-file-upload .rionite-file-upload__btn-select-files{display:inline;padding:0;border:0;background:0 0;color:#168cf3;font:inherit;cursor:inherit}.rionite-file-upload .rionite-file-upload__drop-zone[over]{border-color:#168cf3}.rionite-file-upload .rionite-file-upload__drop-zone[over] .rionite-file-upload__drop-zone-text{pointer-events:none}.rionite-file-upload .rionite-file-upload__drop-zone[error] .rionite-file-upload__drop-zone-error-message-wrapper{display:block}@keyframes rionite-file-upload__file-loading-icon-animation{0%{transform:rotate(0)}to{transform:rotate(360deg)}}";
             head.appendChild(style);
             return style;
         }
@@ -204,11 +209,16 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_9__;
 
 "use strict";
 
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -229,7 +239,8 @@ var i18n = {
     dropFilesHereOr: rionite_1.getText.t('Перетащите файлы в эту область или'),
     btnSelectFilesText: rionite_1.getText.t('нажмите для выбора в проводнике'),
     typeErrorMessage: rionite_1.getText.t('Файл не подходит по типу'),
-    sizeErrorMessage: rionite_1.getText.t('Файл слишком большой')
+    sizeErrorMessage: rionite_1.getText.t('Файл слишком большой'),
+    totalSizeErrorMessage: rionite_1.getText.t('Превышен лимит суммарного размера файлов')
 };
 var RioniteFileUpload = (function (_super) {
     __extends(RioniteFileUpload, _super);
@@ -248,19 +259,27 @@ var RioniteFileUpload = (function (_super) {
         });
     };
     RioniteFileUpload.prototype._onBtnRemoveFileClick = function (evt, btn) {
-        this.files.remove(this.files.get(btn.dataset['fileId'], 'id'));
+        var file = this.files.get(btn.dataset['fileId'], 'id');
+        this._size -= file.size;
+        this.files.remove(file);
     };
     RioniteFileUpload.prototype._addFiles = function (files) {
         var sizeLimit = this.props['sizeLimit'];
+        var totalSizeLimit = this.props['totalSizeLimit'];
         var reFileType = this._reFileType;
+        var size = this._size;
         var errorMessage;
         for (var i = 0, l = files.length; i < l; i++) {
             var file = files[i];
+            size += file.size;
             if (reFileType && !reFileType.test(file.type)) {
                 errorMessage = i18n.typeErrorMessage;
             }
-            else if (file.size > sizeLimit) {
+            else if (sizeLimit && file.size > sizeLimit) {
                 errorMessage = i18n.sizeErrorMessage;
+            }
+            else if (totalSizeLimit && size > totalSizeLimit) {
+                errorMessage = i18n.totalSizeErrorMessage;
             }
             if (errorMessage) {
                 this.errorMessage = errorMessage;
@@ -269,6 +288,7 @@ var RioniteFileUpload = (function (_super) {
             }
         }
         if (!errorMessage) {
+            this._size = size;
             for (var i = 0, l = files.length; i < l; i++) {
                 var readableFile = new ReadableFile_1.default(files[i]);
                 readableFile.read();
@@ -283,7 +303,8 @@ RioniteFileUpload = __decorate([
         elementIs: 'rionite-file-upload',
         props: {
             typePattern: { type: String, readonly: true },
-            sizeLimit: Number
+            sizeLimit: Number,
+            totalSizeLimit: Number
         },
         i18n: i18n,
         bemlTemplate: template,

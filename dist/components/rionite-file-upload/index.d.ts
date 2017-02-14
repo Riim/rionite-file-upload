@@ -8,6 +8,7 @@ import ReadableFile from './ReadableFile';
 export default class RioniteFileUpload extends Component {
     files: IndexedList<ReadableFile>;
     _reFileType: RegExp;
+    _size: number;
     errorMessage: string | null;
     error: boolean;
     initialize(): void;
