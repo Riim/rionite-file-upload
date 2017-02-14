@@ -245,7 +245,9 @@ var i18n = {
 var RioniteFileUpload = (function (_super) {
     __extends(RioniteFileUpload, _super);
     function RioniteFileUpload() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this._size = 0;
+        return _this;
     }
     RioniteFileUpload.prototype.initialize = function () {
         this.files = new cellx_indexed_collections_1.IndexedList();

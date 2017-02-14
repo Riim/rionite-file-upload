@@ -76,7 +76,7 @@ export default class RioniteFileUpload extends Component {
 
 	_reFileType: RegExp;
 
-	_size: number;
+	_size = 0;
 
 	errorMessage: string | null;
 	error: boolean;
