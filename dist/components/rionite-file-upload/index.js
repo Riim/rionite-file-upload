@@ -98,6 +98,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+Object.defineProperty(exports, "__esModule", { value: true });
 var cellx_1 = __webpack_require__(0);
 var nextUID = cellx_1.Utils.nextUID;
 var imageTypePrefix = 'image/';
@@ -105,7 +106,7 @@ var ReadableFile = (function (_super) {
     __extends(ReadableFile, _super);
     function ReadableFile(file) {
         var _this = _super.call(this) || this;
-        _this._file = file;
+        _this.file = file;
         _this.id = nextUID();
         _this.type = file.type;
         _this.isImage = file.type.slice(0, imageTypePrefix.length) == imageTypePrefix;
@@ -122,7 +123,7 @@ var ReadableFile = (function (_super) {
         var reader = this.reader = new FileReader();
         reader.addEventListener('load', this._onReaderLoad.bind(this));
         this.currentlyReading = true;
-        reader.readAsBinaryString(this._file);
+        reader.readAsBinaryString(this.file);
     };
     ReadableFile.prototype._onReaderLoad = function (evt) {
         var binaryString = this.binaryString = evt.target['result'];
@@ -132,7 +133,6 @@ var ReadableFile = (function (_super) {
     };
     return ReadableFile;
 }(cellx_1.EventEmitter));
-Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = ReadableFile;
 
 
@@ -142,11 +142,11 @@ exports.default = ReadableFile;
 
 "use strict";
 
+Object.defineProperty(exports, "__esModule", { value: true });
 var reEscapableChars = /([?+|$(){}[^.\-\]\/\\*])/g;
 function escapeRegExp(str) {
     return str.replace(reEscapableChars, '\\$1');
 }
-Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = escapeRegExp;
 
 
@@ -225,6 +225,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 __webpack_require__(6);
 __webpack_require__(5);
 __webpack_require__(7);
@@ -345,7 +346,6 @@ RioniteFileUpload = __decorate([
         }
     })
 ], RioniteFileUpload);
-Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = RioniteFileUpload;
 
 

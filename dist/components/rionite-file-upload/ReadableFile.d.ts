@@ -1,6 +1,6 @@
 import { EventEmitter } from 'cellx';
 export default class ReadableFile extends EventEmitter {
-    readonly _file: File;
+    readonly file: File;
     readonly id: string;
     readonly type: string;
     readonly isImage: boolean;

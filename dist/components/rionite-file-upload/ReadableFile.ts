@@ -5,7 +5,7 @@ let nextUID = Utils.nextUID;
 let imageTypePrefix = 'image/';
 
 export default class ReadableFile extends EventEmitter {
-	readonly _file: File;
+	readonly file: File;
 
 	readonly id: string;
 	readonly type: string;
@@ -25,7 +25,7 @@ export default class ReadableFile extends EventEmitter {
 	constructor(file: File) {
 		super();
 
-		this._file = file;
+		this.file = file;
 
 		this.id = nextUID();
 		this.type = file.type;
@@ -44,7 +44,7 @@ export default class ReadableFile extends EventEmitter {
 		let reader = this.reader = new FileReader();
 		reader.addEventListener('load', this._onReaderLoad.bind(this));
 		this.currentlyReading = true;
-		reader.readAsBinaryString(this._file);
+		reader.readAsBinaryString(this.file);
 	}
 
 	_onReaderLoad(evt: Event) {

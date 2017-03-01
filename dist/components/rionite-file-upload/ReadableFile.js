@@ -9,6 +9,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+Object.defineProperty(exports, "__esModule", { value: true });
 var cellx_1 = require("cellx");
 var nextUID = cellx_1.Utils.nextUID;
 var imageTypePrefix = 'image/';
@@ -16,7 +17,7 @@ var ReadableFile = (function (_super) {
     __extends(ReadableFile, _super);
     function ReadableFile(file) {
         var _this = _super.call(this) || this;
-        _this._file = file;
+        _this.file = file;
         _this.id = nextUID();
         _this.type = file.type;
         _this.isImage = file.type.slice(0, imageTypePrefix.length) == imageTypePrefix;
@@ -33,7 +34,7 @@ var ReadableFile = (function (_super) {
         var reader = this.reader = new FileReader();
         reader.addEventListener('load', this._onReaderLoad.bind(this));
         this.currentlyReading = true;
-        reader.readAsBinaryString(this._file);
+        reader.readAsBinaryString(this.file);
     };
     ReadableFile.prototype._onReaderLoad = function (evt) {
         var binaryString = this.binaryString = evt.target['result'];
@@ -43,5 +44,4 @@ var ReadableFile = (function (_super) {
     };
     return ReadableFile;
 }(cellx_1.EventEmitter));
-Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = ReadableFile;
