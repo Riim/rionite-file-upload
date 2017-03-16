@@ -1,5 +1,5 @@
 ul/file-list {
-	template (is=rt-repeat, for=file of files, track-by=id, strip) {
+	template (is=rt-repeat, for=file of files, track-by=id) {
 		li/file {
 			div/file-preview-wrapper {
 				template (is=rt-if-then, if=file.readed) {
