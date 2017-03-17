@@ -23,7 +23,7 @@
 			& .rionite-file-upload__file-preview-wrapper {
 				position: relative;
 				display: inline-block;
-				margin-right: .5em;
+				margin-right: 10px;
 				width: 48px;
 				height: 48px;
 				vertical-align: middle;
