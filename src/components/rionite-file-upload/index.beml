@@ -17,7 +17,7 @@ ul/file-list {
 				}
 			}
 
-			span/file-text { strong { '{file.name}' } }
+			span/file-text { '{file.name}' }
 
 			button/btn-remove-file (data-file-id={file.id}, rt-click=_onBtnRemoveFileClick) {
 				svg/btn-remove-file-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-trash) }

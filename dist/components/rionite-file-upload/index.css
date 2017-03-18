@@ -62,6 +62,7 @@
 
 			& .rionite-file-upload__file-text {
 				vertical-align: middle;
+				font-weight: bold;
 			}
 
 			& .rionite-file-upload__btn-remove-file {
