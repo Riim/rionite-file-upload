@@ -1,18 +1,16 @@
 ul/file-list {
-	template (is=rt-repeat, for=file of files, track-by=id) {
+	@repeat (for=file of files, track-by=id) {
 		li/file {
 			div/file-preview-wrapper {
-				template (is=rt-if-then, if=file.readed) {
-					template (is=rt-if-then, if=file.isImage) {
+				@if-then (if=file.readed) {
+					@if-then (if=file.isImage) {
 						img/file-preview (_src={file.dataURI})
 					}
-
-					template (is=rt-if-else, if=file.isImage) {
+					@if-else (if=file.isImage) {
 						svg/file-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-file) }
 					}
 				}
-
-				template (is=rt-if-else, if=file.readed) {
+				@if-else (if=file.readed) {
 					svg/file-loading-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-spinner) }
 				}
 			}

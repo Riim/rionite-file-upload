@@ -1,6 +1,6 @@
 {
   "name": "rionite-file-upload",
-  "version": "0.21.3",
+  "version": "0.21.4",
   "description": "",
   "main": "dist/components/rionite-file-upload/index.js",
   "typings": "dist/components/rionite-file-upload/index.d.ts",
@@ -38,13 +38,13 @@
     "simple-css-loader": "^0.1.1",
     "simple-svg-loader": "^1.0.2",
     "trim-lines-loader": "^0.1.0",
-    "typescript": "^2.2.2",
-    "webpack": "^2.3.2",
-    "yargs": "^7.0.2"
+    "typescript": "^2.3.0",
+    "webpack": "^2.4.1",
+    "yargs": "^7.1.0"
   },
   "dependencies": {
-    "cellx": "^1.7.0",
+    "cellx": "^1.7.1",
     "cellx-indexed-collections": "^1.0.8",
-    "rionite": "^0.21.10"
+    "rionite": "^0.21.16"
   }
 }

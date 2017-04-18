@@ -3,7 +3,7 @@ import '../../assets/icons/rionite-file-upload__icon-file.svg';
 import '../../assets/icons/rionite-file-upload__icon-trash.svg';
 import './index.css';
 
-import { define } from 'cellx';
+import { EventEmitter, define } from 'cellx';
 import { IndexedList } from 'cellx-indexed-collections';
 import { getText, Component, d } from 'rionite';
 import ReadableFile from './ReadableFile';
@@ -90,7 +90,7 @@ export default class RioniteFileUpload extends Component {
 			this._reFileType = RegExp(`^${ escapeRegExp(typePattern).split('\\*').join('.*') }$`);
 		}
 
-		define(this, {
+		define(this as any as EventEmitter, {
 			errorMessage: null,
 			error: false
 		});
