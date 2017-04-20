@@ -1,3 +1,5 @@
+@section/inner {
+
 ul/file-list {
 	@repeat (for=file of files, track-by=id) {
 		li/file {
@@ -35,4 +37,6 @@ div/drop-zone (error={error}) {
 		'{constructor.i18n.dropFilesHereOr}' br
 		button/btn-select-files { '{constructor.i18n.btnSelectFilesText}' }
 	}
+}
+
 }
