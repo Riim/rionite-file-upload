@@ -29,7 +29,7 @@ let i18n = {
 
 	i18n,
 
-	bemlTemplate: template,
+	template,
 
 	events: {
 		'files-input': {

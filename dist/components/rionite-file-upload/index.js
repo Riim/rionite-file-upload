@@ -310,7 +310,7 @@ RioniteFileUpload = __decorate([
             totalSizeLimit: Number
         },
         i18n: i18n,
-        bemlTemplate: template,
+        template: template,
         events: {
             'files-input': {
                 change: function (evt) {
