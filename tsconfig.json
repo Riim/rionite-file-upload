@@ -7,6 +7,7 @@
 		"noImplicitAny": true,
 		"noImplicitReturns": true,
 		"noUnusedLocals": true,
+		"outDir": "dist",
 		"preserveConstEnums": true,
 		"strictNullChecks": true,
 		"suppressImplicitAnyIndexErrors": true,
