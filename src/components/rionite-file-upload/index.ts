@@ -21,7 +21,7 @@ let i18n = {
 @d.Component<RioniteFileUpload>({
 	elementIs: 'rionite-file-upload',
 
-	props: {
+	input: {
 		typePattern: { type: String, readonly: true },
 		sizeLimit: Number,
 		totalSizeLimit: Number
@@ -84,7 +84,7 @@ export default class RioniteFileUpload extends Component {
 	initialize() {
 		this.files = new IndexedList<ReadableFile>();
 
-		let typePattern = this.props.typePattern;
+		let typePattern = this.input.typePattern;
 
 		if (typePattern) {
 			this._reFileType = RegExp(`^${ escapeRegExp(typePattern).split('\\*').join('.*') }$`);
@@ -103,8 +103,8 @@ export default class RioniteFileUpload extends Component {
 	}
 
 	_addFiles(files: FileList) {
-		let sizeLimit = this.props.sizeLimit;
-		let totalSizeLimit = this.props.totalSizeLimit;
+		let sizeLimit = this.input.sizeLimit;
+		let totalSizeLimit = this.input.totalSizeLimit;
 		let reFileType = this._reFileType;
 		let size = this._size;
 		let errorMessage: string | undefined;
