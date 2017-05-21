@@ -1,4 +1,4 @@
-declare module "*.beml" {
-	let beml: string;
-	export = beml;
+declare module "*.nelm" {
+	let nelm: string;
+	export = nelm;
 }

@@ -8,7 +8,7 @@ import { IndexedList } from 'cellx-indexed-collections';
 import { getText, Component, d } from 'rionite';
 import ReadableFile from './ReadableFile';
 import escapeRegExp from './escapeRegExp';
-import template = require('./index.beml');
+import template = require('./index.nelm');
 
 let i18n = {
 	dropFilesHereOr: getText.t('Перетащите файлы в эту область или'),

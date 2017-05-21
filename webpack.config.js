@@ -37,11 +37,7 @@ module.exports = function(env) {
 					loader: 'awesome-typescript-loader'
 				},
 				{
-					test: /\.html$/,
-					loader: ['raw-loader', 'collapse-html-whitespaces-loader']
-				},
-				{
-					test: /\.beml$/,
+					test: /\.nelm$/,
 					loader: ['raw-loader', 'collapse-line-breaks-loader', 'trim-lines-loader']
 				},
 				{
