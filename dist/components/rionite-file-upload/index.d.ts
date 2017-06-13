@@ -15,3 +15,4 @@ export default class RioniteFileUpload extends Component {
     _onBtnRemoveFileClick(evt: Event, btn: HTMLElement): void;
     _addFiles(files: FileList): void;
 }
+export { ReadableFile };

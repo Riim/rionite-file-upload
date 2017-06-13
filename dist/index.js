@@ -113,6 +113,7 @@ var cellx_1 = __webpack_require__(0);
 var cellx_indexed_collections_1 = __webpack_require__(10);
 var rionite_1 = __webpack_require__(11);
 var ReadableFile_1 = __webpack_require__(2);
+exports.ReadableFile = ReadableFile_1.default;
 var escapeRegExp_1 = __webpack_require__(3);
 var template = __webpack_require__(5);
 var i18n = {
@@ -304,7 +305,8 @@ exports.default = escapeRegExp;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var rionite_file_upload_1 = __webpack_require__(1);
-exports.default = rionite_file_upload_1.default;
+exports.RioniteFileUpload = rionite_file_upload_1.default;
+exports.ReadableFile = rionite_file_upload_1.ReadableFile;
 
 
 /***/ }),

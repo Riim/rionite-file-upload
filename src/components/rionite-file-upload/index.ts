@@ -140,3 +140,5 @@ export default class RioniteFileUpload extends Component {
 		}
 	}
 }
+
+export { ReadableFile };

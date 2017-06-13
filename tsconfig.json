@@ -3,6 +3,7 @@
 		"allowSyntheticDefaultImports": true,
 		"declaration": true,
 		"experimentalDecorators": true,
+		"lib": ["es2017", "dom"],
 		"module": "commonjs",
 		"noImplicitAny": true,
 		"noImplicitReturns": true,
