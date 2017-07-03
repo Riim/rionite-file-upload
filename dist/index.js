@@ -179,53 +179,53 @@ var RioniteFileUpload = (function (_super) {
             }
         }
     };
-    return RioniteFileUpload;
-}(rionite_1.Component));
-RioniteFileUpload = __decorate([
-    rionite_1.d.Component({
-        elementIs: 'rionite-file-upload',
-        input: {
-            typePattern: { type: String, readonly: true },
-            sizeLimit: Number,
-            totalSizeLimit: Number
-        },
-        i18n: i18n,
-        template: template,
-        events: {
-            'files-input': {
-                change: function (evt) {
-                    this._addFiles(evt.target['files']);
-                }
+    RioniteFileUpload = __decorate([
+        rionite_1.d.Component({
+            elementIs: 'rionite-file-upload',
+            input: {
+                typePattern: { type: String, readonly: true },
+                sizeLimit: Number,
+                totalSizeLimit: Number
             },
-            'drop-zone': {
-                dragenter: function (evt) {
-                    this.error = false;
-                    evt.target.setAttribute('over', '');
-                },
-                dragover: function (evt) {
-                    evt.preventDefault();
-                    evt.dataTransfer.dropEffect = 'copy';
-                },
-                dragleave: function (evt) {
-                    evt.target.removeAttribute('over');
-                },
-                drop: function (evt) {
-                    evt.preventDefault();
-                    evt.target.removeAttribute('over');
-                    this._addFiles(evt.dataTransfer.files);
-                },
-                click: function () {
-                    if (this.error) {
-                        this.error = false;
+            i18n: i18n,
+            template: template,
+            events: {
+                'files-input': {
+                    change: function (evt) {
+                        this._addFiles(evt.target['files']);
                     }
-                    else {
-                        this.$('files-input').click();
+                },
+                'drop-zone': {
+                    dragenter: function (evt) {
+                        this.error = false;
+                        evt.target.setAttribute('over', '');
+                    },
+                    dragover: function (evt) {
+                        evt.preventDefault();
+                        evt.dataTransfer.dropEffect = 'copy';
+                    },
+                    dragleave: function (evt) {
+                        evt.target.removeAttribute('over');
+                    },
+                    drop: function (evt) {
+                        evt.preventDefault();
+                        evt.target.removeAttribute('over');
+                        this._addFiles(evt.dataTransfer.files);
+                    },
+                    click: function () {
+                        if (this.error) {
+                            this.error = false;
+                        }
+                        else {
+                            this.$('files-input').click();
+                        }
                     }
                 }
             }
-        }
-    })
-], RioniteFileUpload);
+        })
+    ], RioniteFileUpload);
+    return RioniteFileUpload;
+}(rionite_1.Component));
 exports.default = RioniteFileUpload;
 
 
