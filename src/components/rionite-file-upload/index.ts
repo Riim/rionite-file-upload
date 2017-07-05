@@ -31,42 +31,12 @@ let i18n = {
 
 	template,
 
-	events: {
-		'files-input': {
-			change(evt: Event) {
-				this._addFiles(evt.target['files']);
-			}
-		},
-
-		'drop-zone': {
-			dragenter(evt: DragEvent) {
-				this.error = false;
-				(evt.target as HTMLElement).setAttribute('over', '');
-			},
-
-			dragover(evt: DragEvent) {
-				evt.preventDefault();
-				evt.dataTransfer.dropEffect = 'copy';
-			},
-
-			dragleave(evt: DragEvent) {
-				(evt.target as HTMLElement).removeAttribute('over');
-			},
-
-			drop(evt: DragEvent) {
-				evt.preventDefault();
-
-				(evt.target as HTMLElement).removeAttribute('over');
-
-				this._addFiles(evt.dataTransfer.files);
-			},
-
-			click() {
-				if (this.error) {
-					this.error = false;
-				} else {
-					(this.$('files-input') as HTMLElement).click();
-				}
+	domEvents: {
+		'btn-remove-file': {
+			click(evt: Event, btn: HTMLElement) {
+				let file = this.files.get(btn.dataset['fileId'], 'id');
+				this._size -= file.size;
+				this.files.remove(file);
 			}
 		}
 	}
@@ -96,10 +66,50 @@ export default class RioniteFileUpload extends Component {
 		});
 	}
 
-	_onBtnRemoveFileClick(evt: Event, btn: HTMLElement) {
-		let file = this.files.get(btn.dataset['fileId'], 'id');
-		this._size -= file.size;
-		this.files.remove(file);
+	elementAttached() {
+		this.listenTo(this.$('files-input') as Node, 'change', this._onFilesInputChange);
+
+		this.listenTo(this.$('drop-zone') as Node, {
+			dragenter: this._onDropZoneDragEnter,
+			dragover: this._onDropZoneDragOver,
+			dragleave: this._onDropZoneDragLeave,
+			drop: this._onDropZoneDrop,
+			click: this._onDropZoneClick
+		});
+	}
+
+	_onFilesInputChange(evt: Event) {
+		this._addFiles(evt.target['files']);
+	}
+
+	_onDropZoneDragEnter(evt: DragEvent) {
+		this.error = false;
+		(evt.target as HTMLElement).setAttribute('over', '');
+	}
+
+	_onDropZoneDragOver(evt: DragEvent) {
+		evt.preventDefault();
+		evt.dataTransfer.dropEffect = 'copy';
+	}
+	
+	_onDropZoneDragLeave(evt: DragEvent) {
+		(evt.target as HTMLElement).removeAttribute('over');
+	}
+	
+	_onDropZoneDrop(evt: DragEvent) {
+		evt.preventDefault();
+
+		(evt.target as HTMLElement).removeAttribute('over');
+
+		this._addFiles(evt.dataTransfer.files);
+	}
+
+	_onDropZoneClick() {
+		if (this.error) {
+			this.error = false;
+		} else {
+			(this.$('files-input') as HTMLElement).click();
+		}
 	}
 
 	_addFiles(files: FileList) {

@@ -12,7 +12,13 @@ export default class RioniteFileUpload extends Component {
     errorMessage: string | null;
     error: boolean;
     initialize(): void;
-    _onBtnRemoveFileClick(evt: Event, btn: HTMLElement): void;
+    elementAttached(): void;
+    _onFilesInputChange(evt: Event): void;
+    _onDropZoneDragEnter(evt: DragEvent): void;
+    _onDropZoneDragOver(evt: DragEvent): void;
+    _onDropZoneDragLeave(evt: DragEvent): void;
+    _onDropZoneDrop(evt: DragEvent): void;
+    _onDropZoneClick(): void;
     _addFiles(files: FileList): void;
 }
 export { ReadableFile };

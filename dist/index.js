@@ -141,10 +141,42 @@ var RioniteFileUpload = (function (_super) {
             error: false
         });
     };
-    RioniteFileUpload.prototype._onBtnRemoveFileClick = function (evt, btn) {
-        var file = this.files.get(btn.dataset['fileId'], 'id');
-        this._size -= file.size;
-        this.files.remove(file);
+    RioniteFileUpload.prototype.elementAttached = function () {
+        this.listenTo(this.$('files-input'), 'change', this._onFilesInputChange);
+        this.listenTo(this.$('drop-zone'), {
+            dragenter: this._onDropZoneDragEnter,
+            dragover: this._onDropZoneDragOver,
+            dragleave: this._onDropZoneDragLeave,
+            drop: this._onDropZoneDrop,
+            click: this._onDropZoneClick
+        });
+    };
+    RioniteFileUpload.prototype._onFilesInputChange = function (evt) {
+        this._addFiles(evt.target['files']);
+    };
+    RioniteFileUpload.prototype._onDropZoneDragEnter = function (evt) {
+        this.error = false;
+        evt.target.setAttribute('over', '');
+    };
+    RioniteFileUpload.prototype._onDropZoneDragOver = function (evt) {
+        evt.preventDefault();
+        evt.dataTransfer.dropEffect = 'copy';
+    };
+    RioniteFileUpload.prototype._onDropZoneDragLeave = function (evt) {
+        evt.target.removeAttribute('over');
+    };
+    RioniteFileUpload.prototype._onDropZoneDrop = function (evt) {
+        evt.preventDefault();
+        evt.target.removeAttribute('over');
+        this._addFiles(evt.dataTransfer.files);
+    };
+    RioniteFileUpload.prototype._onDropZoneClick = function () {
+        if (this.error) {
+            this.error = false;
+        }
+        else {
+            this.$('files-input').click();
+        }
     };
     RioniteFileUpload.prototype._addFiles = function (files) {
         var sizeLimit = this.input.sizeLimit;
@@ -189,36 +221,12 @@ var RioniteFileUpload = (function (_super) {
             },
             i18n: i18n,
             template: template,
-            events: {
-                'files-input': {
-                    change: function (evt) {
-                        this._addFiles(evt.target['files']);
-                    }
-                },
-                'drop-zone': {
-                    dragenter: function (evt) {
-                        this.error = false;
-                        evt.target.setAttribute('over', '');
-                    },
-                    dragover: function (evt) {
-                        evt.preventDefault();
-                        evt.dataTransfer.dropEffect = 'copy';
-                    },
-                    dragleave: function (evt) {
-                        evt.target.removeAttribute('over');
-                    },
-                    drop: function (evt) {
-                        evt.preventDefault();
-                        evt.target.removeAttribute('over');
-                        this._addFiles(evt.dataTransfer.files);
-                    },
-                    click: function () {
-                        if (this.error) {
-                            this.error = false;
-                        }
-                        else {
-                            this.$('files-input').click();
-                        }
+            domEvents: {
+                'btn-remove-file': {
+                    click: function (evt, btn) {
+                        var file = this.files.get(btn.dataset['fileId'], 'id');
+                        this._size -= file.size;
+                        this.files.remove(file);
                     }
                 }
             }
@@ -313,7 +321,7 @@ exports.ReadableFile = rionite_file_upload_1.ReadableFile;
 /* 5 */
 /***/ (function(module, exports) {
 
-module.exports = "@section/inner {\nul/file-list {\n@repeat (for=file of files, track-by=id) {\nli/file {\ndiv/file-preview-wrapper {\n@if-then (if=file.readed) {\n@if-then (if=file.isImage) {\nimg/file-preview (_src={file.dataURI})\n}\n@if-else (if=file.isImage) {\nsvg/file-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-file) }\n}\n}\n@if-else (if=file.readed) {\nsvg/file-loading-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-spinner) }\n}\n}\nspan/file-text { '{file.name}' }\nbutton/btn-remove-file (data-file-id={file.id}, rt-click=_onBtnRemoveFileClick) {\nsvg/btn-remove-file-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-trash) }\n}\n}\n}\n}\ninput/files-input (type=file, multiple)\ndiv/drop-zone (error={error}) {\ndiv/drop-zone-error-message-wrapper {\nspan/drop-zone-error-message { '{errorMessage}' }\n}\nspan/drop-zone-text {\n'{constructor.i18n.dropFilesHereOr}' br\nbutton/btn-select-files { '{constructor.i18n.btnSelectFilesText}' }\n}\n}\n}"
+module.exports = "@section/inner {\nul/file-list {\n@repeat (for=file of files, track-by=id) {\nli/file {\ndiv/file-preview-wrapper {\n@if-then (if=file.readed) {\n@if-then (if=file.isImage) {\nimg/file-preview (_src={file.dataURI})\n}\n@if-else (if=file.isImage) {\nsvg/file-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-file) }\n}\n}\n@if-else (if=file.readed) {\nsvg/file-loading-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-spinner) }\n}\n}\nspan/file-text { '{file.name}' }\nbutton/btn-remove-file (data-file-id={file.id}) {\nsvg/btn-remove-file-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-trash) }\n}\n}\n}\n}\ninput/files-input (type=file, multiple)\ndiv/drop-zone (error={error}) {\ndiv/drop-zone-error-message-wrapper {\nspan/drop-zone-error-message { '{errorMessage}' }\n}\nspan/drop-zone-text {\n'{constructor.i18n.dropFilesHereOr}' br\nbutton/btn-select-files { '{constructor.i18n.btnSelectFilesText}' }\n}\n}\n}"
 
 /***/ }),
 /* 6 */
