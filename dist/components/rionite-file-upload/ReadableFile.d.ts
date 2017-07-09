@@ -1,5 +1,5 @@
 import { EventEmitter } from 'cellx';
-export default class ReadableFile extends EventEmitter {
+export declare class ReadableFile extends EventEmitter {
     readonly file: File;
     readonly id: string;
     readonly type: string;

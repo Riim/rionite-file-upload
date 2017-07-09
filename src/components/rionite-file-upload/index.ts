@@ -1,13 +1,12 @@
-import '../../assets/icons/rionite-file-upload__icon-spinner.svg';
-import '../../assets/icons/rionite-file-upload__icon-file.svg';
-import '../../assets/icons/rionite-file-upload__icon-trash.svg';
-import './index.css';
-
-import { EventEmitter, define } from 'cellx';
+import { define, EventEmitter } from 'cellx';
 import { IndexedList } from 'cellx-indexed-collections';
-import { getText, Component, d } from 'rionite';
-import ReadableFile from './ReadableFile';
-import escapeRegExp from './escapeRegExp';
+import { Component, d, getText } from 'rionite';
+import '../../assets/icons/rionite-file-upload__icon-file.svg';
+import '../../assets/icons/rionite-file-upload__icon-spinner.svg';
+import '../../assets/icons/rionite-file-upload__icon-trash.svg';
+import { escapeRegExp } from './escapeRegExp';
+import './index.css';
+import { ReadableFile } from './ReadableFile';
 import template = require('./index.nelm');
 
 let i18n = {
@@ -41,7 +40,7 @@ let i18n = {
 		}
 	}
 })
-export default class RioniteFileUpload extends Component {
+export class RioniteFileUpload extends Component {
 	files: IndexedList<ReadableFile>;
 
 	_reFileType: RegExp;

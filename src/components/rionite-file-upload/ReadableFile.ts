@@ -1,10 +1,10 @@
-import { EventEmitter, define, Utils } from 'cellx';
+import { define, EventEmitter, Utils } from 'cellx';
 
 let nextUID = Utils.nextUID;
 
 let imageTypePrefix = 'image/';
 
-export default class ReadableFile extends EventEmitter {
+export class ReadableFile extends EventEmitter {
 	readonly file: File;
 
 	readonly id: string;

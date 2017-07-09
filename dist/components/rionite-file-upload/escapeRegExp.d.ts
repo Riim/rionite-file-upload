@@ -1,1 +1,1 @@
-export default function escapeRegExp(str: string): string;
+export declare function escapeRegExp(str: string): string;
