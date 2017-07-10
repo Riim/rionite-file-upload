@@ -90,11 +90,11 @@ export class RioniteFileUpload extends Component {
 		evt.preventDefault();
 		evt.dataTransfer.dropEffect = 'copy';
 	}
-	
+
 	_onDropZoneDragLeave(evt: DragEvent) {
 		(evt.target as HTMLElement).removeAttribute('over');
 	}
-	
+
 	_onDropZoneDrop(evt: DragEvent) {
 		evt.preventDefault();
 
