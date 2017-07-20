@@ -1,4 +1,4 @@
-.rionite-file-upload {
+@component rionite-file-upload {
 	display: block;
 	box-sizing: border-box;
 	padding: 12px;
@@ -8,19 +8,19 @@
 	font-size: 1rem;
 	line-height: 1.5;
 
-	& .rionite-file-upload__file-list {
+	@el file-list {
 		margin: 0;
 		padding: 0;
 		list-style: none;
 	}
-		& .rionite-file-upload__file {
+		@el file {
 			position: relative;
 			margin-bottom: 10px;
 			padding: 12px 52px 12px 20px;
 			border-radius: 3px;
 			background: hsl(0,0%,95%);
 		}
-			& .rionite-file-upload__file-preview-wrapper {
+			@el file-preview-wrapper {
 				position: relative;
 				display: inline-block;
 				margin-right: 10px;
@@ -28,9 +28,7 @@
 				height: 48px;
 				vertical-align: middle;
 			}
-				& .rionite-file-upload__file-preview,
-				& .rionite-file-upload__file-icon,
-				& .rionite-file-upload__file-loading-icon {
+				@el file-preview, file-icon, file-loading-icon {
 					position: absolute;
 					top: 0;
 					right: 0;
@@ -40,32 +38,32 @@
 					margin: auto;
 				}
 
-				& .rionite-file-upload__file-preview {
+				@el file-preview {
 					max-width: 48px;
 					max-height: 48px;
 					border: 0;
 					border-radius: 3px;
 				}
 
-				& .rionite-file-upload__file-icon {
+				@el file-icon {
 					width: 48px;
 					height: 48px;
 					fill: currentColor;
 				}
 
-				& .rionite-file-upload__file-loading-icon {
+				@el file-loading-icon {
 					width: 20px;
 					height: 20px;
 					animation: rionite-file-upload__file-loading-icon-animation 1.2s infinite linear;
 					fill: currentColor;
 				}
 
-			& .rionite-file-upload__file-text {
+			@el file-text {
 				vertical-align: middle;
 				font-weight: bold;
 			}
 
-			& .rionite-file-upload__btn-remove-file {
+			@el btn-remove-file {
 				position: absolute;
 				top: 0;
 				right: 10px;
@@ -77,30 +75,33 @@
 				height: 42px;
 				border: 0;
 				background: transparent;
+				color: hsl(0,0%,60%);
 				cursor: pointer;
+				transition: color .1s;
 				transform: translateY(-1px);
 			}
-				& .rionite-file-upload__btn-remove-file-icon {
+				@el btn-remove-file-icon {
 					display: block;
 					width: 22px;
 					height: 22px;
-					transition: fill .1s;
-					fill: hsl(0,0%,60%);
+					fill: currentColor;
 				}
 
-			& .rionite-file-upload__btn-remove-file:hover .rionite-file-upload__btn-remove-file-icon {
-				fill: hsl(0,0%,30%);
+			@el btn-remove-file {
+				&:hover {
+					color: hsl(0,0%,30%);
+				}
+
+				&:active {
+					transform: translateY(0);
+				}
 			}
 
-			& .rionite-file-upload__btn-remove-file:active {
-				transform: translateY(0);
-			}
-
-	& .rionite-file-upload__files-input {
+	@el files-input {
 		display: none;
 	}
 
-	& .rionite-file-upload__drop-zone {
+	@el drop-zone {
 		position: relative;
 		padding: 25px;
 		border: 2px dashed hsl(0,0%,60%);
@@ -110,7 +111,7 @@
 		text-align: center;
 		cursor: pointer;
 	}
-		& .rionite-file-upload__drop-zone-error-message-wrapper {
+		@el drop-zone-error-message-wrapper {
 			position: absolute;
 			top: 0;
 			right: 0;
@@ -121,24 +122,24 @@
 			background: inherit;
 			white-space: nowrap;
 			font-size: 0;
-		}
-			& .rionite-file-upload__drop-zone-error-message-wrapper::after {
+
+			&::after {
 				display: inline-block;
 				width: 0;
 				height: 100%;
 				content: '';
 				vertical-align: middle;
 			}
-
-			& .rionite-file-upload__drop-zone-error-message {
+		}
+			@el drop-zone-error-message {
 				color: hsl(0,100%,50%);
 				vertical-align: middle;
 				font-size: 1rem;
 			}
 
-		& .rionite-file-upload__drop-zone-text {
+		@el drop-zone-text {
 		}
-			& .rionite-file-upload__btn-select-files {
+			@el btn-select-files {
 				display: inline;
 				padding: 0;
 				border: 0;
@@ -148,15 +149,17 @@
 				cursor: inherit;
 			}
 
-	& .rionite-file-upload__drop-zone[over] {
-		border-color: hsl(208,90%,52%);
-	}
-		& .rionite-file-upload__drop-zone[over] .rionite-file-upload__drop-zone-text {
-			pointer-events: none;
+	@el drop-zone {
+		&[over] {
+			border-color: hsl(208,90%,52%);
 		}
+			&[over] .rionite-file-upload__drop-zone-text {
+				pointer-events: none;
+			}
 
-	& .rionite-file-upload__drop-zone[error] .rionite-file-upload__drop-zone-error-message-wrapper  {
-		display: block;
+		&[error] .rionite-file-upload__drop-zone-error-message-wrapper {
+			display: block;
+		}
 	}
 }
 
