@@ -1,6 +1,6 @@
 {
   "name": "rionite-file-upload",
-  "version": "0.27.4",
+  "version": "0.27.5",
   "description": "",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -43,6 +43,6 @@
   "dependencies": {
     "cellx": "^1.7.22",
     "cellx-indexed-collections": "^1.0.14",
-    "rionite": "^0.27.16"
+    "rionite": "^0.27.17"
   }
 }
