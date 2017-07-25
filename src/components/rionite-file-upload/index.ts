@@ -66,9 +66,9 @@ export class RioniteFileUpload extends Component {
 	}
 
 	elementAttached() {
-		this.listenTo(this.$<Node>('files-input'), 'change', this._onFilesInputChange);
+		this.listenTo(this.$<Node>('files-input')!, 'change', this._onFilesInputChange);
 
-		this.listenTo(this.$<Node>('drop-zone'), {
+		this.listenTo(this.$<Node>('drop-zone')!, {
 			dragenter: this._onDropZoneDragEnter,
 			dragover: this._onDropZoneDragOver,
 			dragleave: this._onDropZoneDragLeave,
@@ -107,7 +107,7 @@ export class RioniteFileUpload extends Component {
 		if (this.error) {
 			this.error = false;
 		} else {
-			this.$<HTMLElement>('files-input').click();
+			this.$<HTMLElement>('files-input')!.click();
 		}
 	}
 
