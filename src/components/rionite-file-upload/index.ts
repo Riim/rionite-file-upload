@@ -33,7 +33,7 @@ let i18n = {
 	domEvents: {
 		'btn-remove-file': {
 			click(evt: Event, btn: HTMLElement) {
-				let file = this.files.get(btn.dataset['fileId'], 'id');
+				let file = this.files.get(btn.dataset['fileId'], 'id')!;
 				this._size -= file.size;
 				this.files.remove(file);
 			}
@@ -59,16 +59,16 @@ export class RioniteFileUpload extends Component {
 			this._reFileType = RegExp(`^${ escapeRegExp(typePattern).split('\\*').join('.*') }$`);
 		}
 
-		define(this as any as EventEmitter, {
+		define((this as any) as EventEmitter, {
 			errorMessage: null,
 			error: false
 		});
 	}
 
 	elementAttached() {
-		this.listenTo(this.$('files-input') as Node, 'change', this._onFilesInputChange);
+		this.listenTo(this.$<Node>('files-input'), 'change', this._onFilesInputChange);
 
-		this.listenTo(this.$('drop-zone') as Node, {
+		this.listenTo(this.$<Node>('drop-zone'), {
 			dragenter: this._onDropZoneDragEnter,
 			dragover: this._onDropZoneDragOver,
 			dragleave: this._onDropZoneDragLeave,
@@ -107,7 +107,7 @@ export class RioniteFileUpload extends Component {
 		if (this.error) {
 			this.error = false;
 		} else {
-			(this.$('files-input') as HTMLElement).click();
+			this.$<HTMLElement>('files-input').click();
 		}
 	}
 
