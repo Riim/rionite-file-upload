@@ -28,7 +28,10 @@
 				height: 48px;
 				vertical-align: middle;
 			}
-				@el file-preview, file-icon, file-loading-icon {
+				@el file-preview,
+					file-icon,
+					file-loading-icon
+				{
 					position: absolute;
 					top: 0;
 					right: 0;
@@ -79,15 +82,7 @@
 				cursor: pointer;
 				transition: color .1s;
 				transform: translateY(-1px);
-			}
-				@el btn-remove-file-icon {
-					display: block;
-					width: 22px;
-					height: 22px;
-					fill: currentColor;
-				}
 
-			@el btn-remove-file {
 				&:hover {
 					color: hsl(0,0%,30%);
 				}
@@ -96,6 +91,12 @@
 					transform: translateY(0);
 				}
 			}
+				@el btn-remove-file-icon {
+					display: block;
+					width: 22px;
+					height: 22px;
+					fill: currentColor;
+				}
 
 	@el files-input {
 		display: none;
@@ -110,6 +111,20 @@
 		color: hsl(0,0%,50%);
 		text-align: center;
 		cursor: pointer;
+
+		@mod over {
+			border-color: hsl(208,90%,52%);
+
+			@el drop-zone-text {
+				pointer-events: none;
+			}
+		}
+
+		@mod error {
+			@el drop-zone-error-message-wrapper {
+				display: block;
+			}
+		}
 	}
 		@el drop-zone-error-message-wrapper {
 			position: absolute;
@@ -148,19 +163,6 @@
 				font: inherit;
 				cursor: inherit;
 			}
-
-	@el drop-zone {
-		&[over] {
-			border-color: hsl(208,90%,52%);
-		}
-			&[over] .rionite-file-upload__drop-zone-text {
-				pointer-events: none;
-			}
-
-		&[error] .rionite-file-upload__drop-zone-error-message-wrapper {
-			display: block;
-		}
-	}
 }
 
 @keyframes rionite-file-upload__file-loading-icon-animation {
