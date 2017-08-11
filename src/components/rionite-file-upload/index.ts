@@ -7,7 +7,7 @@ import '../../assets/icons/rionite-file-upload__icon-trash.svg';
 import { escapeRegExp } from './escapeRegExp';
 import './index.css';
 import { ReadableFile } from './ReadableFile';
-import template = require('./index.nelm');
+import template = require('./template.nelm');
 
 let i18n = {
 	dropFilesHereOr: getText.t('Перетащите файлы в эту область или'),
