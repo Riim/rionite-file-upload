@@ -161,7 +161,7 @@ var RioniteFileUpload = (function (_super) {
         });
     };
     RioniteFileUpload.prototype._onFilesInputChange = function (evt) {
-        this._addFiles(evt.target['files']);
+        this._addFiles(evt.target.files);
     };
     RioniteFileUpload.prototype._onDropZoneDragEnter = function (evt) {
         this.error = false;
@@ -351,7 +351,7 @@ var ReadableFile = (function (_super) {
         reader.readAsBinaryString(this.file);
     };
     ReadableFile.prototype._onReaderLoad = function (evt) {
-        var binaryString = this.binaryString = evt.target['result'];
+        var binaryString = this.binaryString = evt.target.result;
         this.dataURI = "data:" + this.type + ";base64," + btoa(binaryString);
         this.currentlyReading = false;
         this.readed = true;

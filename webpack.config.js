@@ -74,7 +74,11 @@ module.exports = (env) => {
 			extensions: ['.ts', '.tsx', '.js', '.jsx']
 		},
 
-		externals: ['cellx', 'cellx-indexed-collections', 'rionite'],
+		externals: [
+			'cellx',
+			'cellx-indexed-collections',
+			'rionite'
+		],
 
 		plugins: plugins,
 

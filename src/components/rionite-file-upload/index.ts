@@ -78,7 +78,7 @@ export class RioniteFileUpload extends Component {
 	}
 
 	_onFilesInputChange(evt: Event) {
-		this._addFiles(evt.target['files']);
+		this._addFiles((evt.target as any).files);
 	}
 
 	_onDropZoneDragEnter(evt: DragEvent) {

@@ -48,7 +48,7 @@ export class ReadableFile extends EventEmitter {
 	}
 
 	_onReaderLoad(evt: Event) {
-		let binaryString = this.binaryString = evt.target['result'];
+		let binaryString = this.binaryString = (evt.target as any).result;
 		this.dataURI = `data:${ this.type };base64,${ btoa(binaryString) }`;
 		this.currentlyReading = false;
 		this.readed = true;
