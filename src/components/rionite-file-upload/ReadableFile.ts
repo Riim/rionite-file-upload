@@ -1,6 +1,5 @@
-import { define, EventEmitter, Utils } from 'cellx';
-
-let nextUID = Utils.nextUID;
+import { nextUID } from '@riim/next-uid';
+import { define, EventEmitter } from 'cellx';
 
 let imageTypePrefix = 'image/';
 

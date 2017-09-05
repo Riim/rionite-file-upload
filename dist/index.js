@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("cellx"), require("cellx-indexed-collections"), require("rionite"));
+		module.exports = factory(require("cellx"), require("@riim/escape-regexp"), require("@riim/gettext"), require("cellx-indexed-collections"), require("rionite"), require("@riim/next-uid"));
 	else if(typeof define === 'function' && define.amd)
-		define(["cellx", "cellx-indexed-collections", "rionite"], factory);
+		define(["cellx", "@riim/escape-regexp", "@riim/gettext", "cellx-indexed-collections", "rionite", "@riim/next-uid"], factory);
 	else if(typeof exports === 'object')
-		exports["index"] = factory(require("cellx"), require("cellx-indexed-collections"), require("rionite"));
+		exports["index"] = factory(require("cellx"), require("@riim/escape-regexp"), require("@riim/gettext"), require("cellx-indexed-collections"), require("rionite"), require("@riim/next-uid"));
 	else
-		root["index"] = factory(root["cellx"], root["cellx-indexed-collections"], root["rionite"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_0__, __WEBPACK_EXTERNAL_MODULE_3__, __WEBPACK_EXTERNAL_MODULE_4__) {
+		root["index"] = factory(root["cellx"], root["@riim/escape-regexp"], root["@riim/gettext"], root["cellx-indexed-collections"], root["rionite"], root["@riim/next-uid"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE_0__, __WEBPACK_EXTERNAL_MODULE_3__, __WEBPACK_EXTERNAL_MODULE_4__, __WEBPACK_EXTERNAL_MODULE_5__, __WEBPACK_EXTERNAL_MODULE_6__, __WEBPACK_EXTERNAL_MODULE_12__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -114,25 +114,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var escape_regexp_1 = __webpack_require__(3);
+var gettext_1 = __webpack_require__(4);
 var cellx_1 = __webpack_require__(0);
-var cellx_indexed_collections_1 = __webpack_require__(3);
-var rionite_1 = __webpack_require__(4);
-__webpack_require__(5);
-__webpack_require__(6);
+var cellx_indexed_collections_1 = __webpack_require__(5);
+var rionite_1 = __webpack_require__(6);
 __webpack_require__(7);
-var escapeRegExp_1 = __webpack_require__(8);
+__webpack_require__(8);
 __webpack_require__(9);
-var ReadableFile_1 = __webpack_require__(10);
+__webpack_require__(10);
+var ReadableFile_1 = __webpack_require__(11);
 exports.ReadableFile = ReadableFile_1.ReadableFile;
-var template = __webpack_require__(11);
+var template = __webpack_require__(13);
 var i18n = {
-    dropFilesHereOr: rionite_1.getText.t('Перетащите файлы в эту область или'),
-    btnSelectFilesText: rionite_1.getText.t('нажмите для выбора в проводнике'),
-    typeErrorMessage: rionite_1.getText.t('Файл не подходит по типу'),
-    sizeErrorMessage: rionite_1.getText.t('Файл слишком большой'),
-    totalSizeErrorMessage: rionite_1.getText.t('Превышен лимит суммарного размера файлов')
+    dropFilesHereOr: gettext_1.getText.t('Перетащите файлы в эту область или'),
+    btnSelectFilesText: gettext_1.getText.t('нажмите для выбора в проводнике'),
+    typeErrorMessage: gettext_1.getText.t('Файл не подходит по типу'),
+    sizeErrorMessage: gettext_1.getText.t('Файл слишком большой'),
+    totalSizeErrorMessage: gettext_1.getText.t('Превышен лимит суммарного размера файлов')
 };
-var RioniteFileUpload = (function (_super) {
+var RioniteFileUpload = /** @class */ (function (_super) {
     __extends(RioniteFileUpload, _super);
     function RioniteFileUpload() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
@@ -143,7 +144,7 @@ var RioniteFileUpload = (function (_super) {
         this.files = new cellx_indexed_collections_1.IndexedList();
         var typePattern = this.input.typePattern;
         if (typePattern) {
-            this._reFileType = RegExp("^" + escapeRegExp_1.escapeRegExp(typePattern).split('\\*').join('.*') + "$");
+            this._reFileType = RegExp("^" + escape_regexp_1.escapeRegExp(typePattern).split('\\*').join('.*') + "$");
         }
         cellx_1.define(this, {
             errorMessage: null,
@@ -262,36 +263,34 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_4__;
 /* 5 */
 /***/ (function(module, exports) {
 
-(function _() { if (document.body) { document.body.insertAdjacentHTML('beforeend', "<svg xmlns=\"http://www.w3.org/2000/svg\" style=\"display:none\"><symbol viewBox=\"0 0 32 32\" id=\"rionite-file-upload__icon-file\"><path d=\"M28.681 7.159c-.694-.947-1.662-2.053-2.724-3.116s-2.169-2.03-3.116-2.724C21.229.137 20.448 0 20 0H4.5A2.503 2.503 0 0 0 2 2.5v27C2 30.878 3.122 32 4.5 32h23c1.378 0 2.5-1.122 2.5-2.5V10c0-.448-.137-1.23-1.319-2.841zm-4.138-1.702A27.334 27.334 0 0 1 26.811 8H22V3.189a27.334 27.334 0 0 1 2.543 2.268zM28 29.5c0 .271-.229.5-.5.5h-23a.507.507 0 0 1-.5-.5v-27c0-.271.229-.5.5-.5H20v7a1 1 0 0 0 1 1h7v19.5z\" xmlns=\"http://www.w3.org/2000/svg\"/></symbol></svg>"); } else { setTimeout(_, 100); } })();
+module.exports = __WEBPACK_EXTERNAL_MODULE_5__;
 
 /***/ }),
 /* 6 */
 /***/ (function(module, exports) {
 
-(function _() { if (document.body) { document.body.insertAdjacentHTML('beforeend', "<svg xmlns=\"http://www.w3.org/2000/svg\" style=\"display:none\"><symbol viewBox=\"0 0 32 32\" id=\"rionite-file-upload__icon-spinner\"><path d=\"M16 32c-4.274 0-8.292-1.664-11.314-4.686S0 20.274 0 16c0-3.026.849-5.973 2.456-8.522a16.061 16.061 0 0 1 6.386-5.791l1.344 2.682a13.044 13.044 0 0 0-5.192 4.708A12.953 12.953 0 0 0 3 15.999c0 7.168 5.832 13 13 13s13-5.832 13-13c0-2.459-.69-4.853-1.994-6.922a13.051 13.051 0 0 0-5.192-4.708l1.344-2.682a16.047 16.047 0 0 1 6.386 5.791A15.953 15.953 0 0 1 32 16c0 4.274-1.664 8.292-4.686 11.314S20.274 32 16 32z\" xmlns=\"http://www.w3.org/2000/svg\"/></symbol></svg>"); } else { setTimeout(_, 100); } })();
+module.exports = __WEBPACK_EXTERNAL_MODULE_6__;
 
 /***/ }),
 /* 7 */
 /***/ (function(module, exports) {
 
-(function _() { if (document.body) { document.body.insertAdjacentHTML('beforeend', "<svg xmlns=\"http://www.w3.org/2000/svg\" style=\"display:none\"><symbol viewBox=\"0 0 32 32\" id=\"rionite-file-upload__icon-trash\"><path d=\"M4 10v20c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V10H4zm6 18H8V14h2v14zm4 0h-2V14h2v14zm4 0h-2V14h2v14zm4 0h-2V14h2v14z\" xmlns=\"http://www.w3.org/2000/svg\"/><path d=\"M26.5 4H20V1.5c0-.825-.675-1.5-1.5-1.5h-7c-.825 0-1.5.675-1.5 1.5V4H3.5C2.675 4 2 4.675 2 5.5V8h26V5.5c0-.825-.675-1.5-1.5-1.5zM18 4h-6V2.025h6V4z\"/></symbol></svg>"); } else { setTimeout(_, 100); } })();
+(function _() { if (document.body) { document.body.insertAdjacentHTML('beforeend', "<svg xmlns=\"http://www.w3.org/2000/svg\" style=\"display:none\"><symbol viewBox=\"0 0 32 32\" id=\"rionite-file-upload__icon-file\"><path d=\"M28.681 7.159c-.694-.947-1.662-2.053-2.724-3.116s-2.169-2.03-3.116-2.724C21.229.137 20.448 0 20 0H4.5A2.503 2.503 0 0 0 2 2.5v27C2 30.878 3.122 32 4.5 32h23c1.378 0 2.5-1.122 2.5-2.5V10c0-.448-.137-1.23-1.319-2.841zm-4.138-1.702A27.334 27.334 0 0 1 26.811 8H22V3.189a27.334 27.334 0 0 1 2.543 2.268zM28 29.5c0 .271-.229.5-.5.5h-23a.507.507 0 0 1-.5-.5v-27c0-.271.229-.5.5-.5H20v7a1 1 0 0 0 1 1h7v19.5z\" xmlns=\"http://www.w3.org/2000/svg\"/></symbol></svg>"); } else { setTimeout(_, 100); } })();
 
 /***/ }),
 /* 8 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var reEscapableChars = /([?+|$(){}[^.\-\]\/\\*])/g;
-function escapeRegExp(str) {
-    return str.replace(reEscapableChars, '\\$1');
-}
-exports.escapeRegExp = escapeRegExp;
-
+(function _() { if (document.body) { document.body.insertAdjacentHTML('beforeend', "<svg xmlns=\"http://www.w3.org/2000/svg\" style=\"display:none\"><symbol viewBox=\"0 0 32 32\" id=\"rionite-file-upload__icon-spinner\"><path d=\"M16 32c-4.274 0-8.292-1.664-11.314-4.686S0 20.274 0 16c0-3.026.849-5.973 2.456-8.522a16.061 16.061 0 0 1 6.386-5.791l1.344 2.682a13.044 13.044 0 0 0-5.192 4.708A12.953 12.953 0 0 0 3 15.999c0 7.168 5.832 13 13 13s13-5.832 13-13c0-2.459-.69-4.853-1.994-6.922a13.051 13.051 0 0 0-5.192-4.708l1.344-2.682a16.047 16.047 0 0 1 6.386 5.791A15.953 15.953 0 0 1 32 16c0 4.274-1.664 8.292-4.686 11.314S20.274 32 16 32z\" xmlns=\"http://www.w3.org/2000/svg\"/></symbol></svg>"); } else { setTimeout(_, 100); } })();
 
 /***/ }),
 /* 9 */
+/***/ (function(module, exports) {
+
+(function _() { if (document.body) { document.body.insertAdjacentHTML('beforeend', "<svg xmlns=\"http://www.w3.org/2000/svg\" style=\"display:none\"><symbol viewBox=\"0 0 32 32\" id=\"rionite-file-upload__icon-trash\"><path d=\"M4 10v20c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V10H4zm6 18H8V14h2v14zm4 0h-2V14h2v14zm4 0h-2V14h2v14zm4 0h-2V14h2v14z\" xmlns=\"http://www.w3.org/2000/svg\"/><path d=\"M26.5 4H20V1.5c0-.825-.675-1.5-1.5-1.5h-7c-.825 0-1.5.675-1.5 1.5V4H3.5C2.675 4 2 4.675 2 5.5V8h26V5.5c0-.825-.675-1.5-1.5-1.5zM18 4h-6V2.025h6V4z\"/></symbol></svg>"); } else { setTimeout(_, 100); } })();
+
+/***/ }),
+/* 10 */
 /***/ (function(module, exports) {
 
 module.exports = (function(d) {
@@ -308,7 +307,7 @@ module.exports = (function(d) {
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -324,15 +323,15 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+var next_uid_1 = __webpack_require__(12);
 var cellx_1 = __webpack_require__(0);
-var nextUID = cellx_1.Utils.nextUID;
 var imageTypePrefix = 'image/';
-var ReadableFile = (function (_super) {
+var ReadableFile = /** @class */ (function (_super) {
     __extends(ReadableFile, _super);
     function ReadableFile(file) {
         var _this = _super.call(this) || this;
         _this.file = file;
-        _this.id = nextUID();
+        _this.id = next_uid_1.nextUID();
         _this.type = file.type;
         _this.isImage = file.type.slice(0, imageTypePrefix.length) == imageTypePrefix;
         _this.name = file.name;
@@ -362,7 +361,13 @@ exports.ReadableFile = ReadableFile;
 
 
 /***/ }),
-/* 11 */
+/* 12 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_12__;
+
+/***/ }),
+/* 13 */
 /***/ (function(module, exports) {
 
 module.exports = "@section/inner {\nul/file-list {\n@repeat (for=file of files, track-by=id) {\nli/file {\ndiv/file-preview-wrapper {\n@if-then (if=file.readed) {\n@if-then (if=file.isImage) {\nimg/file-preview (_src={file.dataURI})\n}\n@if-else (if=file.isImage) {\nsvg/file-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-file) }\n}\n}\n@if-else (if=file.readed) {\nsvg/file-loading-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-spinner) }\n}\n}\nspan/file-text { '{file.name}' }\nbutton/btn-remove-file (data-file-id={file.id}) {\nsvg/btn-remove-file-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-trash) }\n}\n}\n}\n}\ninput/files-input (type=file, multiple)\ndiv/drop-zone (error={error}) {\ndiv/drop-zone-error-message-wrapper {\nspan/drop-zone-error-message { '{errorMessage}' }\n}\nspan/drop-zone-text {\n'{constructor.i18n.dropFilesHereOr}' br\nbutton/btn-select-files { '{constructor.i18n.btnSelectFilesText}' }\n}\n}\n}"

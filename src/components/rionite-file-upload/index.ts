@@ -1,7 +1,8 @@
 import { escapeRegExp } from '@riim/escape-regexp';
+import { getText } from '@riim/gettext';
 import { define, EventEmitter } from 'cellx';
 import { IndexedList } from 'cellx-indexed-collections';
-import { Component, d, getText } from 'rionite';
+import { Component, d } from 'rionite';
 import '../../assets/icons/rionite-file-upload__icon-file.svg';
 import '../../assets/icons/rionite-file-upload__icon-spinner.svg';
 import '../../assets/icons/rionite-file-upload__icon-trash.svg';

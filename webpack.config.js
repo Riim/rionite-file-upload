@@ -75,6 +75,9 @@ module.exports = (env) => {
 		},
 
 		externals: [
+			'@riim/escape-regexp',
+			'@riim/gettext',
+			'@riim/next-uid',
 			'cellx',
 			'cellx-indexed-collections',
 			'rionite'
