@@ -26,8 +26,6 @@ ul/file-list {
 	}
 }
 
-input/files-input (type=file, multiple)
-
 div/drop-zone (error={error}) {
 	div/drop-zone-error-message-wrapper {
 		span/drop-zone-error-message { '{errorMessage}' }
@@ -38,5 +36,7 @@ div/drop-zone (error={error}) {
 		button/btn-select-files { '{constructor.i18n.btnSelectFilesText}' }
 	}
 }
+
+input/files-input (type=file, multiple)
 
 }

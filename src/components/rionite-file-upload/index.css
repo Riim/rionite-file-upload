@@ -98,10 +98,6 @@
 					fill: currentColor;
 				}
 
-	@el files-input {
-		display: none;
-	}
-
 	@el drop-zone {
 		position: relative;
 		padding: 25px;
@@ -163,6 +159,10 @@
 				font: inherit;
 				cursor: inherit;
 			}
+
+	@el files-input {
+		display: none;
+	}
 }
 
 @keyframes rionite-file-upload__file-loading-icon-animation {

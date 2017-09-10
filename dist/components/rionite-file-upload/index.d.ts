@@ -6,9 +6,9 @@ import '../../assets/icons/rionite-file-upload__icon-trash.svg';
 import './index.css';
 import { ReadableFile } from './ReadableFile';
 export declare class RioniteFileUpload extends Component {
-    files: IndexedList<ReadableFile>;
     _reFileType: RegExp;
     _size: number;
+    files: IndexedList<ReadableFile>;
     errorMessage: string | null;
     error: boolean;
     initialize(): void;

@@ -42,11 +42,11 @@ let i18n = {
 	}
 })
 export class RioniteFileUpload extends Component {
-	files: IndexedList<ReadableFile>;
-
 	_reFileType: RegExp;
 
 	_size = 0;
+
+	files: IndexedList<ReadableFile>;
 
 	errorMessage: string | null;
 	error: boolean;
