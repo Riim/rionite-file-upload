@@ -8,7 +8,7 @@ import '../../assets/icons/rionite-file-upload__icon-spinner.svg';
 import '../../assets/icons/rionite-file-upload__icon-trash.svg';
 import './index.css';
 import { ReadableFile } from './ReadableFile';
-import template = require('./template.nelm');
+import template from './template.nelm';
 
 let i18n = {
 	dropFilesHereOr: getText.t('Перетащите файлы в эту область или'),

@@ -125,7 +125,7 @@ __webpack_require__(9);
 __webpack_require__(10);
 var ReadableFile_1 = __webpack_require__(11);
 exports.ReadableFile = ReadableFile_1.ReadableFile;
-var template = __webpack_require__(13);
+var template_nelm_1 = __webpack_require__(13);
 var i18n = {
     dropFilesHereOr: gettext_1.getText.t('Перетащите файлы в эту область или'),
     btnSelectFilesText: gettext_1.getText.t('нажмите для выбора в проводнике'),
@@ -230,7 +230,7 @@ var RioniteFileUpload = /** @class */ (function (_super) {
                 totalSizeLimit: Number
             },
             i18n: i18n,
-            template: template,
+            template: template_nelm_1.default,
             domEvents: {
                 'btn-remove-file': {
                     click: function (evt, btn) {
@@ -368,9 +368,11 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_12__;
 
 /***/ }),
 /* 13 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "@section/inner {\nul/file-list {\n@repeat (for=file of files, track-by=id) {\nli/file {\ndiv/file-preview-wrapper {\n@if-then (if=file.readed) {\n@if-then (if=file.isImage) {\nimg/file-preview (_src={file.dataURI})\n}\n@if-else (if=file.isImage) {\nsvg/file-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-file) }\n}\n}\n@if-else (if=file.readed) {\nsvg/file-loading-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-spinner) }\n}\n}\nspan/file-text { '{file.name}' }\nbutton/btn-remove-file (data-file-id={file.id}) {\nsvg/btn-remove-file-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-trash) }\n}\n}\n}\n}\ndiv/drop-zone (error={error}) {\ndiv/drop-zone-error-message-wrapper {\nspan/drop-zone-error-message { '{errorMessage}' }\n}\nspan/drop-zone-text {\n'{constructor.i18n.dropFilesHereOr}' br\nbutton/btn-select-files { '{constructor.i18n.btnSelectFilesText}' }\n}\n}\ninput/files-input (type=file, multiple)\n}"
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony default export */ __webpack_exports__["default"] = ("@section/inner {\nul/file-list {\n@repeat (for=file of files, track-by=id) {\nli/file {\ndiv/file-preview-wrapper {\n@if-then (if=file.readed) {\n@if-then (if=file.isImage) {\nimg/file-preview (_src={file.dataURI})\n}\n@if-else (if=file.isImage) {\nsvg/file-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-file) }\n}\n}\n@if-else (if=file.readed) {\nsvg/file-loading-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-spinner) }\n}\n}\nspan/file-text { '{file.name}' }\nbutton/btn-remove-file (data-file-id={file.id}) {\nsvg/btn-remove-file-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-trash) }\n}\n}\n}\n}\ndiv/drop-zone (error={error}) {\ndiv/drop-zone-error-message-wrapper {\nspan/drop-zone-error-message { '{errorMessage}' }\n}\nspan/drop-zone-text {\n'{constructor.i18n.dropFilesHereOr}' br\nbutton/btn-select-files { '{constructor.i18n.btnSelectFilesText}' }\n}\n}\ninput/files-input (type=file, multiple)\n}");
 
 /***/ })
 /******/ ]);
