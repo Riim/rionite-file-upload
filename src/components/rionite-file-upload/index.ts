@@ -2,7 +2,7 @@ import { escapeRegExp } from '@riim/escape-regexp';
 import { getText } from '@riim/gettext';
 import { define, EventEmitter } from 'cellx';
 import { IndexedList } from 'cellx-indexed-collections';
-import { Component, d } from 'rionite';
+import { Component, ComponentConfig } from 'rionite';
 import '../../assets/icons/rionite-file-upload__icon-file.svg';
 import '../../assets/icons/rionite-file-upload__icon-spinner.svg';
 import '../../assets/icons/rionite-file-upload__icon-trash.svg';
@@ -18,7 +18,7 @@ let i18n = {
 	totalSizeErrorMessage: getText.t('Превышен лимит суммарного размера файлов')
 };
 
-@d.Component<RioniteFileUpload>({
+@ComponentConfig<RioniteFileUpload>({
 	elementIs: 'rionite-file-upload',
 
 	input: {
@@ -33,7 +33,7 @@ let i18n = {
 
 	domEvents: {
 		'btn-remove-file': {
-			click(evt: Event, btn: HTMLElement) {
+			click(evt, btn: HTMLElement) {
 				let file = this.files.get(btn.dataset['fileId'], 'id')!;
 				this._size -= file.size;
 				this.files.remove(file);

@@ -222,7 +222,7 @@ var RioniteFileUpload = /** @class */ (function (_super) {
         }
     };
     RioniteFileUpload = __decorate([
-        rionite_1.d.Component({
+        rionite_1.ComponentConfig({
             elementIs: 'rionite-file-upload',
             input: {
                 typePattern: { type: String, readonly: true },

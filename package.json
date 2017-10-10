@@ -1,6 +1,6 @@
 {
   "name": "rionite-file-upload",
-  "version": "0.27.25",
+  "version": "0.28.0",
   "description": "",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -21,7 +21,7 @@
   "homepage": "https://github.com/Riim/rionite-file-upload#readme",
   "devDependencies": {
     "@riim/postcss-rionite-component": "^0.3.5",
-    "autoprefixer": "^7.1.4",
+    "autoprefixer": "^7.1.5",
     "awesome-typescript-loader": "^3.2.3",
     "collapse-line-breaks-loader": "^0.1.1",
     "postcss-color-function": "^4.0.0",
@@ -42,8 +42,8 @@
     "@riim/escape-regexp": "^1.0.0",
     "@riim/gettext": "^1.1.1",
     "@riim/next-uid": "^1.0.0",
-    "cellx": "^1.7.61",
-    "cellx-indexed-collections": "^1.0.20",
-    "rionite": "^0.27.73"
+    "cellx": "^1.7.64",
+    "cellx-indexed-collections": "^1.0.22",
+    "rionite": "^0.28.2"
   }
 }
