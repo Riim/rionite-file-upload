@@ -144,7 +144,9 @@ var RioniteFileUpload = /** @class */ (function (_super) {
         this.files = new cellx_indexed_collections_1.IndexedList();
         var typePattern = this.input.typePattern;
         if (typePattern) {
-            this._reFileType = RegExp("^" + escape_regexp_1.escapeRegExp(typePattern).split('\\*').join('.*') + "$");
+            this._reFileType = RegExp("^" + escape_regexp_1.escapeRegExp(typePattern)
+                .split('\\*')
+                .join('.*') + "$");
         }
         cellx_1.define(this, {
             errorMessage: null,
@@ -344,13 +346,13 @@ var ReadableFile = /** @class */ (function (_super) {
         return _this;
     }
     ReadableFile.prototype.read = function () {
-        var reader = this.reader = new FileReader();
+        var reader = (this.reader = new FileReader());
         reader.addEventListener('load', this._onReaderLoad.bind(this));
         this.currentlyReading = true;
         reader.readAsBinaryString(this.file);
     };
     ReadableFile.prototype._onReaderLoad = function (evt) {
-        var binaryString = this.binaryString = evt.target.result;
+        var binaryString = (this.binaryString = evt.target.result);
         this.dataURI = "data:" + this.type + ";base64," + btoa(binaryString);
         this.currentlyReading = false;
         this.readed = true;
@@ -372,7 +374,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_12__;
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony default export */ __webpack_exports__["default"] = ("@section/inner {\nul/file-list {\n@repeat (for=file of files, track-by=id) {\nli/file {\ndiv/file-preview-wrapper {\n@if-then (if=file.readed) {\n@if-then (if=file.isImage) {\nimg/file-preview (_src={file.dataURI})\n}\n@if-else (if=file.isImage) {\nsvg/file-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-file) }\n}\n}\n@if-else (if=file.readed) {\nsvg/file-loading-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-spinner) }\n}\n}\nspan/file-text { '{file.name}' }\nbutton/btn-remove-file (data-file-id={file.id}) {\nsvg/btn-remove-file-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-trash) }\n}\n}\n}\n}\ndiv/drop-zone (error={error}) {\ndiv/drop-zone-error-message-wrapper {\nspan/drop-zone-error-message { '{errorMessage}' }\n}\nspan/drop-zone-text {\n'{constructor.i18n.dropFilesHereOr}' br\nbutton/btn-select-files { '{constructor.i18n.btnSelectFilesText}' }\n}\n}\ninput/files-input (type=file, multiple)\n}");
+/* harmony default export */ __webpack_exports__["default"] = ("@section/inner {\nul/file-list {\n@repeat (for=file of files, track-by=id) {\nli/file {\ndiv/file-preview-wrapper {\n@if-then (if=file.readed) {\n@if-then (if=file.isImage) {\nimg/file-preview (_src={file.dataURI})\n}\n@if-else (if=file.isImage) {\nsvg/file-icon (viewBox=0 0 32 32) {\nuse (xlink:href=#rionite-file-upload__icon-file)\n}\n}\n}\n@if-else (if=file.readed) {\nsvg/file-loading-icon (viewBox=0 0 32 32) {\nuse (xlink:href=#rionite-file-upload__icon-spinner)\n}\n}\n}\nspan/file-text {\n'{file.name}'\n}\nbutton/btn-remove-file (data-file-id={file.id}) {\nsvg/btn-remove-file-icon (viewBox=0 0 32 32) {\nuse (xlink:href=#rionite-file-upload__icon-trash)\n}\n}\n}\n}\n}\ndiv/drop-zone (error={error}) {\ndiv/drop-zone-error-message-wrapper {\nspan/drop-zone-error-message {\n'{errorMessage}'\n}\n}\nspan/drop-zone-text {\n'{constructor.i18n.dropFilesHereOr}'\nbr\nbutton/btn-select-files {\n'{constructor.i18n.btnSelectFilesText}'\n}\n}\n}\ninput/files-input (type=file, multiple)\n}");
 
 /***/ })
 /******/ ]);

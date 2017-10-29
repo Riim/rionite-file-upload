@@ -9,18 +9,26 @@ ul/file-list {
 						img/file-preview (_src={file.dataURI})
 					}
 					@if-else (if=file.isImage) {
-						svg/file-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-file) }
+						svg/file-icon (viewBox=0 0 32 32) {
+							use (xlink:href=#rionite-file-upload__icon-file)
+						}
 					}
 				}
 				@if-else (if=file.readed) {
-					svg/file-loading-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-spinner) }
+					svg/file-loading-icon (viewBox=0 0 32 32) {
+						use (xlink:href=#rionite-file-upload__icon-spinner)
+					}
 				}
 			}
 
-			span/file-text { '{file.name}' }
+			span/file-text {
+				'{file.name}'
+			}
 
 			button/btn-remove-file (data-file-id={file.id}) {
-				svg/btn-remove-file-icon (viewBox=0 0 32 32) { use (xlink:href=#rionite-file-upload__icon-trash) }
+				svg/btn-remove-file-icon (viewBox=0 0 32 32) {
+					use (xlink:href=#rionite-file-upload__icon-trash)
+				}
 			}
 		}
 	}
@@ -28,12 +36,18 @@ ul/file-list {
 
 div/drop-zone (error={error}) {
 	div/drop-zone-error-message-wrapper {
-		span/drop-zone-error-message { '{errorMessage}' }
+		span/drop-zone-error-message {
+			'{errorMessage}'
+		}
 	}
 
 	span/drop-zone-text {
-		'{constructor.i18n.dropFilesHereOr}' br
-		button/btn-select-files { '{constructor.i18n.btnSelectFilesText}' }
+		'{constructor.i18n.dropFilesHereOr}'
+		br
+
+		button/btn-select-files {
+			'{constructor.i18n.btnSelectFilesText}'
+		}
 	}
 }
 

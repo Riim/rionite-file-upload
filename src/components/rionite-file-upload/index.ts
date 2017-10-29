@@ -57,7 +57,11 @@ export class RioniteFileUpload extends Component {
 		let typePattern = this.input.typePattern;
 
 		if (typePattern) {
-			this._reFileType = RegExp(`^${ escapeRegExp(typePattern).split('\\*').join('.*') }$`);
+			this._reFileType = RegExp(
+				`^${escapeRegExp(typePattern)
+					.split('\\*')
+					.join('.*')}$`
+			);
 		}
 
 		define((this as any) as EventEmitter, {

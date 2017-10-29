@@ -7,7 +7,7 @@ let postcssColorFunction = require('postcss-color-function');
 let autoprefixer = require('autoprefixer');
 let csso = require('postcss-csso');
 
-module.exports = (env) => {
+module.exports = env => {
 	if (!env) {
 		env = {};
 	}
@@ -49,19 +49,22 @@ module.exports = (env) => {
 				},
 				{
 					test: /\.css$/,
-					loader: ['simple-css-loader', {
-						loader: 'postcss-loader',
-						options: {
-							plugins: [
-								postcssCSSVariables(),
-								postcssRioniteComponent(),
-								postcssNested(),
-								postcssColorFunction(),
-								autoprefixer({ browsers: ['last 3 versions'] }),
-								csso({ restructure: false })
-							]
+					loader: [
+						'simple-css-loader',
+						{
+							loader: 'postcss-loader',
+							options: {
+								plugins: [
+									postcssCSSVariables(),
+									postcssRioniteComponent(),
+									postcssNested(),
+									postcssColorFunction(),
+									autoprefixer({ browsers: ['last 3 versions'] }),
+									csso({ restructure: false })
+								]
+							}
 						}
-					}]
+					]
 				},
 				{
 					test: /\.svg$/,
