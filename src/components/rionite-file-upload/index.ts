@@ -2,7 +2,7 @@ import { escapeRegExp } from '@riim/escape-regexp';
 import { getText } from '@riim/gettext';
 import { define, EventEmitter } from 'cellx';
 import { IndexedList } from 'cellx-indexed-collections';
-import { Component, ComponentConfig } from 'rionite';
+import { Component } from 'rionite';
 import '../../assets/icons/rionite-file-upload__icon-file.svg';
 import '../../assets/icons/rionite-file-upload__icon-spinner.svg';
 import '../../assets/icons/rionite-file-upload__icon-trash.svg';
@@ -18,7 +18,7 @@ let i18n = {
 	totalSizeErrorMessage: getText.t('Превышен лимит суммарного размера файлов')
 };
 
-@ComponentConfig<RioniteFileUpload>({
+@Component.Config<RioniteFileUpload>({
 	elementIs: 'rionite-file-upload',
 
 	input: {
