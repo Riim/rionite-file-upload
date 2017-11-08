@@ -22,7 +22,7 @@ let i18n = {
 	elementIs: 'rionite-file-upload',
 
 	input: {
-		typePattern: { type: String, readonly: true },
+		allowType: { type: String, readonly: true },
 		sizeLimit: Number,
 		totalSizeLimit: Number
 	},
@@ -34,7 +34,7 @@ let i18n = {
 	domEvents: {
 		'btn-remove-file': {
 			click(evt, btn: HTMLElement) {
-				let file = this.files.get(btn.dataset['fileId'], 'id')!;
+				let file = this.files.get(btn.dataset.fileId, 'id')!;
 				this._size -= file.size;
 				this.files.remove(file);
 			}
@@ -54,13 +54,16 @@ export class RioniteFileUpload extends Component {
 	initialize() {
 		this.files = new IndexedList<ReadableFile>();
 
-		let typePattern = this.input.typePattern;
+		let allowType: string | null = this.input.allowType;
 
-		if (typePattern) {
+		if (allowType) {
 			this._reFileType = RegExp(
-				`^${escapeRegExp(typePattern)
+				`^(?:${allowType
+					.split(',')
+					.map(type => escapeRegExp(type.trim()))
+					.join('|')
 					.split('\\*')
-					.join('.*')}$`
+					.join('.*')})$`
 			);
 		}
 
@@ -83,7 +86,8 @@ export class RioniteFileUpload extends Component {
 	}
 
 	_onFilesInputChange(evt: Event) {
-		this._addFiles((evt.target as any).files);
+		this._addFiles((evt.target as HTMLInputElement).files!);
+		(evt.target as HTMLInputElement).value = '';
 	}
 
 	_onDropZoneDragEnter(evt: DragEvent) {
@@ -102,9 +106,7 @@ export class RioniteFileUpload extends Component {
 
 	_onDropZoneDrop(evt: DragEvent) {
 		evt.preventDefault();
-
 		(evt.target as HTMLElement).removeAttribute('over');
-
 		this._addFiles(evt.dataTransfer.files);
 	}
 
@@ -116,7 +118,7 @@ export class RioniteFileUpload extends Component {
 		}
 	}
 
-	_addFiles(files: FileList) {
+	_addFiles(files: FileList): boolean {
 		let sizeLimit = this.input.sizeLimit;
 		let totalSizeLimit = this.input.totalSizeLimit;
 		let reFileType = this._reFileType;
@@ -139,19 +141,19 @@ export class RioniteFileUpload extends Component {
 			if (errorMessage) {
 				this.errorMessage = errorMessage;
 				this.error = true;
-				break;
+				return false;
 			}
 		}
 
-		if (!errorMessage) {
-			this._size = size;
+		this._size = size;
 
-			for (let i = 0, l = files.length; i < l; i++) {
-				let readableFile = new ReadableFile(files[i]);
-				readableFile.read();
-				this.files.add(readableFile);
-			}
+		for (let i = 0, l = files.length; i < l; i++) {
+			let readableFile = new ReadableFile(files[i]);
+			readableFile.read();
+			this.files.add(readableFile);
 		}
+
+		return true;
 	}
 }
 

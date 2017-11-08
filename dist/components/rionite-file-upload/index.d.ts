@@ -19,6 +19,6 @@ export declare class RioniteFileUpload extends Component {
     _onDropZoneDragLeave(evt: DragEvent): void;
     _onDropZoneDrop(evt: DragEvent): void;
     _onDropZoneClick(): void;
-    _addFiles(files: FileList): void;
+    _addFiles(files: FileList): boolean;
 }
 export { ReadableFile };

@@ -142,11 +142,14 @@ var RioniteFileUpload = /** @class */ (function (_super) {
     }
     RioniteFileUpload.prototype.initialize = function () {
         this.files = new cellx_indexed_collections_1.IndexedList();
-        var typePattern = this.input.typePattern;
-        if (typePattern) {
-            this._reFileType = RegExp("^" + escape_regexp_1.escapeRegExp(typePattern)
+        var allowType = this.input.allowType;
+        if (allowType) {
+            this._reFileType = RegExp("^(?:" + allowType
+                .split(',')
+                .map(function (type) { return escape_regexp_1.escapeRegExp(type.trim()); })
+                .join('|')
                 .split('\\*')
-                .join('.*') + "$");
+                .join('.*') + ")$");
         }
         cellx_1.define(this, {
             errorMessage: null,
@@ -165,6 +168,7 @@ var RioniteFileUpload = /** @class */ (function (_super) {
     };
     RioniteFileUpload.prototype._onFilesInputChange = function (evt) {
         this._addFiles(evt.target.files);
+        evt.target.value = '';
     };
     RioniteFileUpload.prototype._onDropZoneDragEnter = function (evt) {
         this.error = false;
@@ -211,23 +215,22 @@ var RioniteFileUpload = /** @class */ (function (_super) {
             if (errorMessage) {
                 this.errorMessage = errorMessage;
                 this.error = true;
-                break;
+                return false;
             }
         }
-        if (!errorMessage) {
-            this._size = size;
-            for (var i = 0, l = files.length; i < l; i++) {
-                var readableFile = new ReadableFile_1.ReadableFile(files[i]);
-                readableFile.read();
-                this.files.add(readableFile);
-            }
+        this._size = size;
+        for (var i = 0, l = files.length; i < l; i++) {
+            var readableFile = new ReadableFile_1.ReadableFile(files[i]);
+            readableFile.read();
+            this.files.add(readableFile);
         }
+        return true;
     };
     RioniteFileUpload = __decorate([
         rionite_1.Component.Config({
             elementIs: 'rionite-file-upload',
             input: {
-                typePattern: { type: String, readonly: true },
+                allowType: { type: String, readonly: true },
                 sizeLimit: Number,
                 totalSizeLimit: Number
             },
@@ -236,7 +239,7 @@ var RioniteFileUpload = /** @class */ (function (_super) {
             domEvents: {
                 'btn-remove-file': {
                     click: function (evt, btn) {
-                        var file = this.files.get(btn.dataset['fileId'], 'id');
+                        var file = this.files.get(btn.dataset.fileId, 'id');
                         this._size -= file.size;
                         this.files.remove(file);
                     }
