@@ -142,7 +142,7 @@ var RioniteFileUpload = /** @class */ (function (_super) {
     }
     RioniteFileUpload.prototype.initialize = function () {
         this.files = new cellx_indexed_collections_1.IndexedList();
-        var allowType = this.input.allowType;
+        var allowType = this.inputs.allowType;
         if (allowType) {
             this._reFileType = RegExp("^(?:" + allowType
                 .split(',')
@@ -195,8 +195,8 @@ var RioniteFileUpload = /** @class */ (function (_super) {
         }
     };
     RioniteFileUpload.prototype._addFiles = function (files) {
-        var sizeLimit = this.input.sizeLimit;
-        var totalSizeLimit = this.input.totalSizeLimit;
+        var sizeLimit = this.inputs.sizeLimit;
+        var totalSizeLimit = this.inputs.totalSizeLimit;
         var reFileType = this._reFileType;
         var size = this._size;
         var errorMessage;
@@ -229,7 +229,7 @@ var RioniteFileUpload = /** @class */ (function (_super) {
     RioniteFileUpload = __decorate([
         rionite_1.Component.Config({
             elementIs: 'rionite-file-upload',
-            input: {
+            inputs: {
                 allowType: { type: String, readonly: true },
                 sizeLimit: Number,
                 totalSizeLimit: Number
