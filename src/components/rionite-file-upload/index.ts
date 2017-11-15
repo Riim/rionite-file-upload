@@ -1,6 +1,6 @@
 import { escapeRegExp } from '@riim/escape-regexp';
 import { getText } from '@riim/gettext';
-import { define, EventEmitter } from 'cellx';
+import { define } from 'cellx';
 import { IndexedList } from 'cellx-indexed-collections';
 import { Component } from 'rionite';
 import '../../assets/icons/rionite-file-upload__icon-file.svg';
@@ -67,7 +67,7 @@ export class RioniteFileUpload extends Component {
 			);
 		}
 
-		define((this as any) as EventEmitter, {
+		define(this, {
 			errorMessage: null,
 			error: false
 		});

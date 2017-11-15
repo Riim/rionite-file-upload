@@ -1,6 +1,6 @@
 {
   "name": "rionite-file-upload",
-  "version": "0.30.0",
+  "version": "0.30.1",
   "description": "",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -42,8 +42,8 @@
     "@riim/escape-regexp": "^1.0.0",
     "@riim/gettext": "^1.1.1",
     "@riim/next-uid": "^1.0.0",
-    "cellx": "^1.7.70",
+    "cellx": "^1.7.72",
     "cellx-indexed-collections": "^1.0.23",
-    "rionite": "^0.30.1"
+    "rionite": "^0.30.5"
   }
 }
