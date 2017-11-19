@@ -228,7 +228,7 @@ var RioniteFileUpload = /** @class */ (function (_super) {
     };
     RioniteFileUpload = __decorate([
         rionite_1.Component.Config({
-            elementIs: 'rionite-file-upload',
+            elementIs: 'RioniteFileUpload',
             params: {
                 allowType: { type: String, readonly: true },
                 sizeLimit: Number,

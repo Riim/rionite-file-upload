@@ -19,7 +19,7 @@ let i18n = {
 };
 
 @Component.Config<RioniteFileUpload>({
-	elementIs: 'rionite-file-upload',
+	elementIs: 'RioniteFileUpload',
 
 	params: {
 		allowType: { type: String, readonly: true },
