@@ -1,4 +1,4 @@
-@component rionite-file-upload {
+@component RioniteFileUpload {
 	display: block;
 	box-sizing: border-box;
 	padding: 12px;
@@ -57,7 +57,7 @@
 				@el file-loading-icon {
 					width: 20px;
 					height: 20px;
-					animation: rionite-file-upload__file-loading-icon-animation 1.2s infinite linear;
+					animation: RioniteFileUpload__file-loading-icon-animation 1.2s infinite linear;
 					fill: currentColor;
 				}
 
@@ -165,7 +165,7 @@
 	}
 }
 
-@keyframes rionite-file-upload__file-loading-icon-animation {
+@keyframes RioniteFileUpload__file-loading-icon-animation {
 	0% {
 		transform: rotate(0);
 	}
