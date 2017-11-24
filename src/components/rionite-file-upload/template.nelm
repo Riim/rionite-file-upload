@@ -10,13 +10,13 @@ ul/file-list {
 					}
 					@if-else (if=file.isImage) {
 						svg/file-icon (viewBox=0 0 32 32) {
-							use (xlink:href=#rionite-file-upload__icon-file)
+							use (xlink:href=#RioniteFileUpload__icon-file)
 						}
 					}
 				}
 				@if-else (if=file.readed) {
 					svg/file-loading-icon (viewBox=0 0 32 32) {
-						use (xlink:href=#rionite-file-upload__icon-spinner)
+						use (xlink:href=#RioniteFileUpload__icon-spinner)
 					}
 				}
 			}
@@ -27,7 +27,7 @@ ul/file-list {
 
 			button/btn-remove-file (data-file-id={file.id}) {
 				svg/btn-remove-file-icon (viewBox=0 0 32 32) {
-					use (xlink:href=#rionite-file-upload__icon-trash)
+					use (xlink:href=#RioniteFileUpload__icon-trash)
 				}
 			}
 		}

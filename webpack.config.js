@@ -83,6 +83,7 @@ module.exports = env => {
 			'@riim/next-uid',
 			'cellx',
 			'cellx-indexed-collections',
+			'reflect-metadata',
 			'rionite'
 		],
 

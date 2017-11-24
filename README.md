@@ -12,7 +12,7 @@ npm install cellx cellx-indexed-collections rionite rionite-file-upload --save
 <script src="./node_modules/rionite/dist/rionite.polyfills.js"></script>
 <script src="./dist/components/rionite-file-upload/index.js"></script>
 
-<rionite-file-upload type-pattern="image/*" size-limit="100000000"></rionite-file-upload>
+<rionite-file-upload allow-type="image/*, ..." size-limit="10000" total-size-limit="100000"></rionite-file-upload>
 ```
 
 ## Demo

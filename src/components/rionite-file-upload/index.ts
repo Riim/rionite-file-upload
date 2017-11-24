@@ -2,10 +2,10 @@ import { escapeRegExp } from '@riim/escape-regexp';
 import { getText } from '@riim/gettext';
 import { define } from 'cellx';
 import { IndexedList } from 'cellx-indexed-collections';
-import { Component } from 'rionite';
-import '../../assets/icons/rionite-file-upload__icon-file.svg';
-import '../../assets/icons/rionite-file-upload__icon-spinner.svg';
-import '../../assets/icons/rionite-file-upload__icon-trash.svg';
+import { Component, Param } from 'rionite';
+import '../../assets/icons/RioniteFileUpload__icon-file.svg';
+import '../../assets/icons/RioniteFileUpload__icon-spinner.svg';
+import '../../assets/icons/RioniteFileUpload__icon-trash.svg';
 import './index.css';
 import { ReadableFile } from './ReadableFile';
 import template from './template.nelm';
@@ -20,15 +20,7 @@ let i18n = {
 
 @Component.Config<RioniteFileUpload>({
 	elementIs: 'RioniteFileUpload',
-
-	params: {
-		allowType: { type: String, readonly: true },
-		sizeLimit: Number,
-		totalSizeLimit: Number
-	},
-
 	i18n,
-
 	template,
 
 	domEvents: {
@@ -42,6 +34,11 @@ let i18n = {
 	}
 })
 export class RioniteFileUpload extends Component {
+	@Param({ readonly: true })
+	paramAllowType: string;
+	@Param paramSizeLimit: number;
+	@Param paramTotalSizeLimit: number;
+
 	_reFileType: RegExp;
 
 	_size = 0;
@@ -54,11 +51,9 @@ export class RioniteFileUpload extends Component {
 	initialize() {
 		this.files = new IndexedList<ReadableFile>();
 
-		let allowType: string | null = this.params.allowType;
-
-		if (allowType) {
+		if (this.paramAllowType) {
 			this._reFileType = RegExp(
-				`^(?:${allowType
+				`^(?:${this.paramAllowType
 					.split(',')
 					.map(type => escapeRegExp(type.trim()))
 					.join('|')
@@ -119,8 +114,8 @@ export class RioniteFileUpload extends Component {
 	}
 
 	_addFiles(files: FileList): boolean {
-		let sizeLimit = this.params.sizeLimit;
-		let totalSizeLimit = this.params.totalSizeLimit;
+		let sizeLimit = this.paramSizeLimit;
+		let totalSizeLimit = this.paramTotalSizeLimit;
 		let reFileType = this._reFileType;
 		let size = this._size;
 		let errorMessage: string | undefined;
