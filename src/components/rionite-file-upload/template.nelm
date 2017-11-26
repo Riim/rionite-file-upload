@@ -1,22 +1,22 @@
 @section/inner {
 
 ul/file-list {
-	@repeat (for=file of files, track-by=id) {
+	@Repeat (for=file of files, track-by=id) {
 		li/file {
 			div/file-preview-wrapper {
-				@if-then (if=file.readed) {
-					@if-then (if=file.isImage) {
+				@IfThen (if=file.readed) {
+					@IfThen (if=file.isImage) {
 						img/file-preview (_src={file.dataURI})
 					}
-					@if-else (if=file.isImage) {
+					@IfElse (if=file.isImage) {
 						svg/file-icon (viewBox=0 0 32 32) {
-							use (xlink:href=#RioniteFileUpload__icon-file)
+							use (xlink:href=#RioniteFileUpload__iconFile)
 						}
 					}
 				}
-				@if-else (if=file.readed) {
+				@IfElse (if=file.readed) {
 					svg/file-loading-icon (viewBox=0 0 32 32) {
-						use (xlink:href=#RioniteFileUpload__icon-spinner)
+						use (xlink:href=#RioniteFileUpload__iconSpinner)
 					}
 				}
 			}
@@ -27,7 +27,7 @@ ul/file-list {
 
 			button/btn-remove-file (data-file-id={file.id}) {
 				svg/btn-remove-file-icon (viewBox=0 0 32 32) {
-					use (xlink:href=#RioniteFileUpload__icon-trash)
+					use (xlink:href=#RioniteFileUpload__iconTrash)
 				}
 			}
 		}

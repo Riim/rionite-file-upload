@@ -1,8 +1,8 @@
 import { IndexedList } from 'cellx-indexed-collections';
 import { Component } from 'rionite';
-import '../../assets/icons/RioniteFileUpload__icon-file.svg';
-import '../../assets/icons/RioniteFileUpload__icon-spinner.svg';
-import '../../assets/icons/RioniteFileUpload__icon-trash.svg';
+import './icons/RioniteFileUpload__iconFile.svg';
+import './icons/RioniteFileUpload__iconSpinner.svg';
+import './icons/RioniteFileUpload__iconTrash.svg';
 import './index.css';
 import { ReadableFile } from './ReadableFile';
 export declare class RioniteFileUpload extends Component {
