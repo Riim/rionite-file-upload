@@ -7,7 +7,7 @@
 		exports["index"] = factory(require("cellx"), require("reflect-metadata"), require("@riim/escape-regexp"), require("@riim/gettext"), require("cellx-indexed-collections"), require("rionite"), require("@riim/next-uid"));
 	else
 		root["index"] = factory(root["cellx"], root["reflect-metadata"], root["@riim/escape-regexp"], root["@riim/gettext"], root["cellx-indexed-collections"], root["rionite"], root["@riim/next-uid"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_0__, __WEBPACK_EXTERNAL_MODULE_2__, __WEBPACK_EXTERNAL_MODULE_4__, __WEBPACK_EXTERNAL_MODULE_5__, __WEBPACK_EXTERNAL_MODULE_6__, __WEBPACK_EXTERNAL_MODULE_7__, __WEBPACK_EXTERNAL_MODULE_13__) {
+})(typeof self !== 'undefined' ? self : this, function(__WEBPACK_EXTERNAL_MODULE_0__, __WEBPACK_EXTERNAL_MODULE_2__, __WEBPACK_EXTERNAL_MODULE_4__, __WEBPACK_EXTERNAL_MODULE_5__, __WEBPACK_EXTERNAL_MODULE_6__, __WEBPACK_EXTERNAL_MODULE_7__, __WEBPACK_EXTERNAL_MODULE_13__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};

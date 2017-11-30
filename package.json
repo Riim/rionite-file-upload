@@ -1,6 +1,6 @@
 {
   "name": "rionite-file-upload",
-  "version": "0.31.7",
+  "version": "0.31.8",
   "description": "",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -23,7 +23,7 @@
     "@riim/postcss-rionite-component": "^0.4.0",
     "autoprefixer": "^7.1.6",
     "awesome-typescript-loader": "^3.4.0",
-    "collapse-line-breaks-loader": "^0.1.1",
+    "collapse-line-breaks-loader": "^0.2.1",
     "postcss-color-function": "^4.0.1",
     "postcss-css-variables": "^0.8.0",
     "postcss-csso": "^3.0.0",
@@ -32,19 +32,19 @@
     "raw-loader": "^1.0.0-beta.0",
     "simple-css-loader": "^0.1.1",
     "simple-svg-loader": "^1.1.1",
-    "trim-lines-loader": "^0.1.0",
+    "trim-lines-loader": "^0.2.1",
     "tslint": "^5.8.0",
     "tslint-loader": "^3.5.3",
-    "typescript": "^2.6.1",
-    "webpack": "^3.8.1"
+    "typescript": "^2.6.2",
+    "webpack": "^3.9.1"
   },
   "dependencies": {
     "@riim/escape-regexp": "^1.0.0",
     "@riim/gettext": "^1.1.1",
     "@riim/next-uid": "^1.0.0",
-    "cellx": "^1.7.77",
+    "cellx": "^1.7.78",
     "cellx-indexed-collections": "^1.0.23",
     "reflect-metadata": "^0.1.10",
-    "rionite": "^0.31.21"
+    "rionite": "^0.31.26"
   }
 }

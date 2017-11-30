@@ -45,7 +45,7 @@ module.exports = env => {
 				},
 				{
 					test: /\.nelm$/,
-					loader: ['raw-loader', 'collapse-line-breaks-loader', 'trim-lines-loader']
+					loader: ['raw-loader', 'trim-lines-loader', 'collapse-line-breaks-loader']
 				},
 				{
 					test: /\.css$/,
