@@ -87,9 +87,9 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_0__;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 __webpack_require__(2);
-var rionite_file_upload_1 = __webpack_require__(3);
-exports.RioniteFileUpload = rionite_file_upload_1.RioniteFileUpload;
-exports.ReadableFile = rionite_file_upload_1.ReadableFile;
+var RioniteFileUpload_1 = __webpack_require__(3);
+exports.RioniteFileUpload = RioniteFileUpload_1.RioniteFileUpload;
+exports.ReadableFile = RioniteFileUpload_1.ReadableFile;
 
 
 /***/ }),
@@ -248,8 +248,7 @@ var RioniteFileUpload = /** @class */ (function (_super) {
         __metadata("design:type", Number)
     ], RioniteFileUpload.prototype, "paramTotalSizeLimit", void 0);
     RioniteFileUpload = __decorate([
-        rionite_1.Component.Config({
-            elementIs: 'RioniteFileUpload',
+        rionite_1.Component({
             i18n: i18n,
             template: template_nelm_1.default,
             domEvents: {
@@ -264,7 +263,7 @@ var RioniteFileUpload = /** @class */ (function (_super) {
         })
     ], RioniteFileUpload);
     return RioniteFileUpload;
-}(rionite_1.Component));
+}(rionite_1.BaseComponent));
 exports.RioniteFileUpload = RioniteFileUpload;
 
 

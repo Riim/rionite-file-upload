@@ -1,3 +1,3 @@
 import 'reflect-metadata';
 
-export { RioniteFileUpload, ReadableFile } from './components/rionite-file-upload';
+export { RioniteFileUpload, ReadableFile } from './components/RioniteFileUpload';

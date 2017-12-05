@@ -1,11 +1,11 @@
 import { IndexedList } from 'cellx-indexed-collections';
-import { Component } from 'rionite';
+import { BaseComponent } from 'rionite';
 import './icons/RioniteFileUpload__iconFile.svg';
 import './icons/RioniteFileUpload__iconSpinner.svg';
 import './icons/RioniteFileUpload__iconTrash.svg';
 import './index.css';
 import { ReadableFile } from './ReadableFile';
-export declare class RioniteFileUpload extends Component {
+export declare class RioniteFileUpload extends BaseComponent {
     paramAllowType: string;
     paramSizeLimit: number;
     paramTotalSizeLimit: number;
