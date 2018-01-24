@@ -8,7 +8,7 @@
 	font-size: 1rem;
 	line-height: 1.5;
 
-	@el file-list {
+	@el fileList {
 		margin: 0;
 		padding: 0;
 		list-style: none;
@@ -20,7 +20,7 @@
 			border-radius: 3px;
 			background: hsl(0,0%,95%);
 		}
-			@el file-preview-wrapper {
+			@el filePreviewWrapper {
 				position: relative;
 				display: inline-block;
 				margin-right: 10px;
@@ -28,9 +28,9 @@
 				height: 48px;
 				vertical-align: middle;
 			}
-				@el file-preview,
-					file-icon,
-					file-loading-icon
+				@el filePreview,
+					fileIcon,
+					fileLoadingIcon
 				{
 					position: absolute;
 					top: 0;
@@ -41,32 +41,32 @@
 					margin: auto;
 				}
 
-				@el file-preview {
+				@el filePreview {
 					max-width: 48px;
 					max-height: 48px;
 					border: 0;
 					border-radius: 3px;
 				}
 
-				@el file-icon {
+				@el fileIcon {
 					width: 48px;
 					height: 48px;
 					fill: currentColor;
 				}
 
-				@el file-loading-icon {
+				@el fileLoadingIcon {
 					width: 20px;
 					height: 20px;
-					animation: RioniteFileUpload__file-loading-icon-animation 1.2s infinite linear;
+					animation: RioniteFileUpload__fileLoadingIconAnimation 1.2s infinite linear;
 					fill: currentColor;
 				}
 
-			@el file-text {
+			@el fileText {
 				vertical-align: middle;
 				font-weight: bold;
 			}
 
-			@el btn-remove-file {
+			@el btnRemoveFile {
 				position: absolute;
 				top: 0;
 				right: 10px;
@@ -91,14 +91,14 @@
 					transform: translateY(0);
 				}
 			}
-				@el btn-remove-file-icon {
+				@el btnRemoveFileIcon {
 					display: block;
 					width: 22px;
 					height: 22px;
 					fill: currentColor;
 				}
 
-	@el drop-zone {
+	@el dropZone {
 		position: relative;
 		padding: 25px;
 		border: 2px dashed hsl(0,0%,60%);
@@ -117,12 +117,12 @@
 		}
 
 		@mod error {
-			@el drop-zone-error-message-wrapper {
+			@el dropZoneErrorMessageWrapper {
 				display: block;
 			}
 		}
 	}
-		@el drop-zone-error-message-wrapper {
+		@el dropZoneErrorMessageWrapper {
 			position: absolute;
 			top: 0;
 			right: 0;
@@ -142,15 +142,15 @@
 				vertical-align: middle;
 			}
 		}
-			@el drop-zone-error-message {
+			@el dropZoneErrorMessage {
 				color: hsl(0,100%,50%);
 				vertical-align: middle;
 				font-size: 1rem;
 			}
 
-		@el drop-zone-text {
+		@el dropZoneText {
 		}
-			@el btn-select-files {
+			@el btnSelectFiles {
 				display: inline;
 				padding: 0;
 				border: 0;
@@ -160,12 +160,12 @@
 				cursor: inherit;
 			}
 
-	@el files-input {
+	@el filesInput {
 		display: none;
 	}
 }
 
-@keyframes RioniteFileUpload__file-loading-icon-animation {
+@keyframes RioniteFileUpload__fileLoadingIconAnimation {
 	0% {
 		transform: rotate(0);
 	}

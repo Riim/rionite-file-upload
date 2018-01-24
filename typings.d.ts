@@ -1,4 +1,4 @@
 declare module "*.nelm" {
-	let nelm: string;
-	export default nelm;
+	let template: string;
+	export default template;
 }

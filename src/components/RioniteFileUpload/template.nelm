@@ -1,32 +1,32 @@
 @section/inner {
 
-ul/file-list {
-	@Repeat (for=file of files, track-by=id) {
+ul/fileList {
+	@Repeat (for=file of files, trackBy=id) {
 		li/file {
-			div/file-preview-wrapper {
+			div/filePreviewWrapper {
 				@IfThen (if=file.readed) {
 					@IfThen (if=file.isImage) {
-						img/file-preview (_src={file.dataURI})
+						img/filePreview (_src={file.dataURI})
 					}
 					@IfElse (if=file.isImage) {
-						svg/file-icon (viewBox=0 0 32 32) {
+						svg/fileIcon (viewBox=0 0 32 32) {
 							use (xlink:href=#RioniteFileUpload__iconFile)
 						}
 					}
 				}
 				@IfElse (if=file.readed) {
-					svg/file-loading-icon (viewBox=0 0 32 32) {
+					svg/fileLoadingIcon (viewBox=0 0 32 32) {
 						use (xlink:href=#RioniteFileUpload__iconSpinner)
 					}
 				}
 			}
 
-			span/file-text {
+			span/fileText {
 				'{file.name}'
 			}
 
-			button/btn-remove-file (data-file-id={file.id}) {
-				svg/btn-remove-file-icon (viewBox=0 0 32 32) {
+			button/btnRemoveFile (data-file-id={file.id}) {
+				svg/btnRemoveFileIcon (viewBox=0 0 32 32) {
 					use (xlink:href=#RioniteFileUpload__iconTrash)
 				}
 			}
@@ -34,23 +34,23 @@ ul/file-list {
 	}
 }
 
-div/drop-zone (error={error}) {
-	div/drop-zone-error-message-wrapper {
-		span/drop-zone-error-message {
+div/dropZone (error={error}) {
+	div/dropZoneErrorMessageWrapper {
+		span/dropZoneErrorMessage {
 			'{errorMessage}'
 		}
 	}
 
-	span/drop-zone-text {
+	span/dropZoneText {
 		'{constructor.i18n.dropFilesHereOr}'
 		br
 
-		button/btn-select-files {
+		button/btnSelectFiles {
 			'{constructor.i18n.btnSelectFilesText}'
 		}
 	}
 }
 
-input/files-input (type=file, multiple)
+input/filesInput (type=file, multiple)
 
 }

@@ -5,6 +5,7 @@ import './icons/RioniteFileUpload__iconSpinner.svg';
 import './icons/RioniteFileUpload__iconTrash.svg';
 import './index.css';
 import { ReadableFile } from './ReadableFile';
+export { ReadableFile };
 export declare class RioniteFileUpload extends BaseComponent {
     paramAllowType: string;
     paramSizeLimit: number;
@@ -24,4 +25,3 @@ export declare class RioniteFileUpload extends BaseComponent {
     _onDropZoneClick(): void;
     _addFiles(files: FileList): boolean;
 }
-export { ReadableFile };

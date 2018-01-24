@@ -10,6 +10,8 @@ import './index.css';
 import { ReadableFile } from './ReadableFile';
 import template from './template.nelm';
 
+export { ReadableFile };
+
 let i18n = {
 	dropFilesHereOr: getText.t('Перетащите файлы в эту область или'),
 	btnSelectFilesText: getText.t('нажмите для выбора в проводнике'),
@@ -23,7 +25,7 @@ let i18n = {
 	template,
 
 	domEvents: {
-		'btn-remove-file': {
+		btnRemoveFile: {
 			click(evt, btn: HTMLElement) {
 				let file = this.files.get(btn.dataset.fileId, 'id')!;
 				this._size -= file.size;
@@ -68,9 +70,8 @@ export class RioniteFileUpload extends BaseComponent {
 	}
 
 	elementAttached() {
-		this.listenTo(this.$<Node>('files-input')!, 'change', this._onFilesInputChange);
-
-		this.listenTo(this.$<Node>('drop-zone')!, {
+		this.listenTo(this.$<Node>('filesInput')!, 'change', this._onFilesInputChange);
+		this.listenTo(this.$<Node>('dropZone')!, {
 			dragenter: this._onDropZoneDragEnter,
 			dragover: this._onDropZoneDragOver,
 			dragleave: this._onDropZoneDragLeave,
@@ -108,7 +109,7 @@ export class RioniteFileUpload extends BaseComponent {
 		if (this.error) {
 			this.error = false;
 		} else {
-			this.$<HTMLElement>('files-input')!.click();
+			this.$<HTMLElement>('filesInput')!.click();
 		}
 	}
 
@@ -150,5 +151,3 @@ export class RioniteFileUpload extends BaseComponent {
 		return true;
 	}
 }
-
-export { ReadableFile };
