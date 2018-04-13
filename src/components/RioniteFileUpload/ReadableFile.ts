@@ -1,7 +1,7 @@
 import { nextUID } from '@riim/next-uid';
 import { define, EventEmitter } from 'cellx';
 
-let imageTypePrefix = 'image/';
+const imageTypePrefix = 'image/';
 
 export class ReadableFile extends EventEmitter {
 	readonly file: File;
@@ -11,7 +11,6 @@ export class ReadableFile extends EventEmitter {
 	readonly isImage: boolean;
 	readonly name: string;
 	readonly size: number;
-	readonly lastModifiedDate: number;
 
 	reader: FileReader;
 
@@ -31,7 +30,6 @@ export class ReadableFile extends EventEmitter {
 		this.isImage = file.type.slice(0, imageTypePrefix.length) == imageTypePrefix;
 		this.name = file.name;
 		this.size = file.size;
-		this.lastModifiedDate = file.lastModifiedDate.toLocaleDateString();
 
 		define(this, {
 			currentlyReading: false,

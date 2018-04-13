@@ -12,7 +12,7 @@ import template from './template.nelm';
 
 export { ReadableFile };
 
-let i18n = {
+const i18n = {
 	dropFilesHereOr: getText.t('Перетащите файлы в эту область или'),
 	btnSelectFilesText: getText.t('нажмите для выбора в проводнике'),
 	typeErrorMessage: getText.t('Файл не подходит по типу'),

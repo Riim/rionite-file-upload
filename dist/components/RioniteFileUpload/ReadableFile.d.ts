@@ -6,7 +6,6 @@ export declare class ReadableFile extends EventEmitter {
     readonly isImage: boolean;
     readonly name: string;
     readonly size: number;
-    readonly lastModifiedDate: number;
     reader: FileReader;
     currentlyReading: boolean;
     readed: boolean;

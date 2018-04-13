@@ -356,7 +356,6 @@ var ReadableFile = /** @class */ (function (_super) {
         _this.isImage = file.type.slice(0, imageTypePrefix.length) == imageTypePrefix;
         _this.name = file.name;
         _this.size = file.size;
-        _this.lastModifiedDate = file.lastModifiedDate.toLocaleDateString();
         cellx_1.define(_this, {
             currentlyReading: false,
             readed: false
