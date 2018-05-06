@@ -1,7 +1,6 @@
 import { escapeRegExp } from '@riim/escape-regexp';
 import { getText } from '@riim/gettext';
-import { define } from 'cellx';
-import { IndexedList } from 'cellx-indexed-collections';
+import { define, ObservableList } from 'cellx';
 import { BaseComponent, Component, Param } from 'rionite';
 import './icons/RioniteFileUpload__iconFile.svg';
 import './icons/RioniteFileUpload__iconSpinner.svg';
@@ -26,8 +25,8 @@ const i18n = {
 
 	domEvents: {
 		btnRemoveFile: {
-			click(evt, btn: HTMLElement) {
-				let file = this.files.get(btn.dataset.fileId, 'id')!;
+			click(evt, context) {
+				let file: ReadableFile = context.file;
 				this._size -= file.size;
 				this.files.remove(file);
 			}
@@ -44,13 +43,13 @@ export class RioniteFileUpload extends BaseComponent {
 
 	_size = 0;
 
-	files: IndexedList<ReadableFile>;
+	files: ObservableList<ReadableFile>;
 
 	errorMessage: string | null;
 	error: boolean;
 
 	initialize() {
-		this.files = new IndexedList<ReadableFile>();
+		this.files = new ObservableList<ReadableFile>();
 
 		if (this.paramAllowType) {
 			this._reFileType = RegExp(

@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("cellx"), require("reflect-metadata"), require("@riim/escape-regexp"), require("@riim/gettext"), require("cellx-indexed-collections"), require("rionite"), require("@riim/next-uid"));
+		module.exports = factory(require("cellx"), require("reflect-metadata"), require("@riim/escape-regexp"), require("@riim/gettext"), require("rionite"), require("@riim/next-uid"));
 	else if(typeof define === 'function' && define.amd)
-		define(["cellx", "reflect-metadata", "@riim/escape-regexp", "@riim/gettext", "cellx-indexed-collections", "rionite", "@riim/next-uid"], factory);
+		define(["cellx", "reflect-metadata", "@riim/escape-regexp", "@riim/gettext", "rionite", "@riim/next-uid"], factory);
 	else if(typeof exports === 'object')
-		exports["index"] = factory(require("cellx"), require("reflect-metadata"), require("@riim/escape-regexp"), require("@riim/gettext"), require("cellx-indexed-collections"), require("rionite"), require("@riim/next-uid"));
+		exports["index"] = factory(require("cellx"), require("reflect-metadata"), require("@riim/escape-regexp"), require("@riim/gettext"), require("rionite"), require("@riim/next-uid"));
 	else
-		root["index"] = factory(root["cellx"], root["reflect-metadata"], root["@riim/escape-regexp"], root["@riim/gettext"], root["cellx-indexed-collections"], root["rionite"], root["@riim/next-uid"]);
-})(typeof self !== 'undefined' ? self : this, function(__WEBPACK_EXTERNAL_MODULE_0__, __WEBPACK_EXTERNAL_MODULE_2__, __WEBPACK_EXTERNAL_MODULE_4__, __WEBPACK_EXTERNAL_MODULE_5__, __WEBPACK_EXTERNAL_MODULE_6__, __WEBPACK_EXTERNAL_MODULE_7__, __WEBPACK_EXTERNAL_MODULE_13__) {
+		root["index"] = factory(root["cellx"], root["reflect-metadata"], root["@riim/escape-regexp"], root["@riim/gettext"], root["rionite"], root["@riim/next-uid"]);
+})(typeof self !== 'undefined' ? self : this, function(__WEBPACK_EXTERNAL_MODULE_0__, __WEBPACK_EXTERNAL_MODULE_2__, __WEBPACK_EXTERNAL_MODULE_4__, __WEBPACK_EXTERNAL_MODULE_5__, __WEBPACK_EXTERNAL_MODULE_6__, __WEBPACK_EXTERNAL_MODULE_12__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -127,15 +127,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var escape_regexp_1 = __webpack_require__(4);
 var gettext_1 = __webpack_require__(5);
 var cellx_1 = __webpack_require__(0);
-var cellx_indexed_collections_1 = __webpack_require__(6);
-var rionite_1 = __webpack_require__(7);
+var rionite_1 = __webpack_require__(6);
+__webpack_require__(7);
 __webpack_require__(8);
 __webpack_require__(9);
 __webpack_require__(10);
-__webpack_require__(11);
-var ReadableFile_1 = __webpack_require__(12);
+var ReadableFile_1 = __webpack_require__(11);
 exports.ReadableFile = ReadableFile_1.ReadableFile;
-var template_nelm_1 = __webpack_require__(14);
+var template_nelm_1 = __webpack_require__(13);
 var i18n = {
     dropFilesHereOr: gettext_1.getText.t('Перетащите файлы в эту область или'),
     btnSelectFilesText: gettext_1.getText.t('нажмите для выбора в проводнике'),
@@ -151,7 +150,7 @@ var RioniteFileUpload = /** @class */ (function (_super) {
         return _this;
     }
     RioniteFileUpload.prototype.initialize = function () {
-        this.files = new cellx_indexed_collections_1.IndexedList();
+        this.files = new cellx_1.ObservableList();
         if (this.paramAllowType) {
             this._reFileType = RegExp("^(?:" + this.paramAllowType
                 .split(',')
@@ -253,8 +252,8 @@ var RioniteFileUpload = /** @class */ (function (_super) {
             template: template_nelm_1.default,
             domEvents: {
                 btnRemoveFile: {
-                    click: function (evt, btn) {
-                        var file = this.files.get(btn.dataset.fileId, 'id');
+                    click: function (evt, context) {
+                        var file = context.file;
                         this._size -= file.size;
                         this.files.remove(file);
                     }
@@ -289,28 +288,22 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_6__;
 /* 7 */
 /***/ (function(module, exports) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE_7__;
+(function _() { if (document.body) { document.body.insertAdjacentHTML('beforeend', "<svg xmlns=\"http://www.w3.org/2000/svg\" style=\"display:none\"><symbol xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 32 32\" id=\"RioniteFileUpload__iconFile\"><path d=\"M28.681 7.159c-.694-.947-1.662-2.053-2.724-3.116s-2.169-2.03-3.116-2.724C21.229.137 20.448 0 20 0H4.5A2.503 2.503 0 0 0 2 2.5v27C2 30.878 3.122 32 4.5 32h23c1.378 0 2.5-1.122 2.5-2.5V10c0-.448-.137-1.23-1.319-2.841zm-4.138-1.702A27.334 27.334 0 0 1 26.811 8H22V3.189a27.334 27.334 0 0 1 2.543 2.268zM28 29.5c0 .271-.229.5-.5.5h-23a.507.507 0 0 1-.5-.5v-27c0-.271.229-.5.5-.5H20v7a1 1 0 0 0 1 1h7v19.5z\"/></symbol></svg>"); } else { setTimeout(_, 100); } })();
 
 /***/ }),
 /* 8 */
 /***/ (function(module, exports) {
 
-(function _() { if (document.body) { document.body.insertAdjacentHTML('beforeend', "<svg xmlns=\"http://www.w3.org/2000/svg\" style=\"display:none\"><symbol xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 32 32\" id=\"RioniteFileUpload__iconFile\"><path d=\"M28.681 7.159c-.694-.947-1.662-2.053-2.724-3.116s-2.169-2.03-3.116-2.724C21.229.137 20.448 0 20 0H4.5A2.503 2.503 0 0 0 2 2.5v27C2 30.878 3.122 32 4.5 32h23c1.378 0 2.5-1.122 2.5-2.5V10c0-.448-.137-1.23-1.319-2.841zm-4.138-1.702A27.334 27.334 0 0 1 26.811 8H22V3.189a27.334 27.334 0 0 1 2.543 2.268zM28 29.5c0 .271-.229.5-.5.5h-23a.507.507 0 0 1-.5-.5v-27c0-.271.229-.5.5-.5H20v7a1 1 0 0 0 1 1h7v19.5z\"/></symbol></svg>"); } else { setTimeout(_, 100); } })();
+(function _() { if (document.body) { document.body.insertAdjacentHTML('beforeend', "<svg xmlns=\"http://www.w3.org/2000/svg\" style=\"display:none\"><symbol xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 32 32\" id=\"RioniteFileUpload__iconSpinner\"><path d=\"M16 32c-4.274 0-8.292-1.664-11.314-4.686S0 20.274 0 16c0-3.026.849-5.973 2.456-8.522a16.061 16.061 0 0 1 6.386-5.791l1.344 2.682a13.044 13.044 0 0 0-5.192 4.708A12.953 12.953 0 0 0 3 15.999c0 7.168 5.832 13 13 13s13-5.832 13-13c0-2.459-.69-4.853-1.994-6.922a13.051 13.051 0 0 0-5.192-4.708l1.344-2.682a16.047 16.047 0 0 1 6.386 5.791A15.953 15.953 0 0 1 32 16c0 4.274-1.664 8.292-4.686 11.314S20.274 32 16 32z\"/></symbol></svg>"); } else { setTimeout(_, 100); } })();
 
 /***/ }),
 /* 9 */
 /***/ (function(module, exports) {
 
-(function _() { if (document.body) { document.body.insertAdjacentHTML('beforeend', "<svg xmlns=\"http://www.w3.org/2000/svg\" style=\"display:none\"><symbol xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 32 32\" id=\"RioniteFileUpload__iconSpinner\"><path d=\"M16 32c-4.274 0-8.292-1.664-11.314-4.686S0 20.274 0 16c0-3.026.849-5.973 2.456-8.522a16.061 16.061 0 0 1 6.386-5.791l1.344 2.682a13.044 13.044 0 0 0-5.192 4.708A12.953 12.953 0 0 0 3 15.999c0 7.168 5.832 13 13 13s13-5.832 13-13c0-2.459-.69-4.853-1.994-6.922a13.051 13.051 0 0 0-5.192-4.708l1.344-2.682a16.047 16.047 0 0 1 6.386 5.791A15.953 15.953 0 0 1 32 16c0 4.274-1.664 8.292-4.686 11.314S20.274 32 16 32z\"/></symbol></svg>"); } else { setTimeout(_, 100); } })();
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports) {
-
 (function _() { if (document.body) { document.body.insertAdjacentHTML('beforeend', "<svg xmlns=\"http://www.w3.org/2000/svg\" style=\"display:none\"><symbol xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 32 32\" id=\"RioniteFileUpload__iconTrash\"><path d=\"M4 10v20c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V10H4zm6 18H8V14h2v14zm4 0h-2V14h2v14zm4 0h-2V14h2v14zm4 0h-2V14h2v14zM26.5 4H20V1.5c0-.825-.675-1.5-1.5-1.5h-7c-.825 0-1.5.675-1.5 1.5V4H3.5C2.675 4 2 4.675 2 5.5V8h26V5.5c0-.825-.675-1.5-1.5-1.5zM18 4h-6V2.025h6V4z\"/></symbol></svg>"); } else { setTimeout(_, 100); } })();
 
 /***/ }),
-/* 11 */
+/* 10 */
 /***/ (function(module, exports) {
 
 module.exports = (function(d) {
@@ -327,7 +320,7 @@ module.exports = (function(d) {
 
 
 /***/ }),
-/* 12 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -343,7 +336,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var next_uid_1 = __webpack_require__(13);
+var next_uid_1 = __webpack_require__(12);
 var cellx_1 = __webpack_require__(0);
 var imageTypePrefix = 'image/';
 var ReadableFile = /** @class */ (function (_super) {
@@ -380,18 +373,18 @@ exports.ReadableFile = ReadableFile;
 
 
 /***/ }),
-/* 13 */
+/* 12 */
 /***/ (function(module, exports) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE_13__;
+module.exports = __WEBPACK_EXTERNAL_MODULE_12__;
 
 /***/ }),
-/* 14 */
+/* 13 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony default export */ __webpack_exports__["default"] = ("@section/inner {\nul/fileList {\n@Repeat (for=file of files, trackBy=id) {\nli/file {\ndiv/filePreviewWrapper {\n@IfThen (if=file.readed) {\n@IfThen (if=file.isImage) {\nimg/filePreview (_src={file.dataURI})\n}\n@IfElse (if=file.isImage) {\nsvg/fileIcon (viewBox=0 0 32 32) {\nuse (xlink:href=#RioniteFileUpload__iconFile)\n}\n}\n}\n@IfElse (if=file.readed) {\nsvg/fileLoadingIcon (viewBox=0 0 32 32) {\nuse (xlink:href=#RioniteFileUpload__iconSpinner)\n}\n}\n}\nspan/fileText {\n'{file.name}'\n}\nbutton/btnRemoveFile (data-file-id={file.id}) {\nsvg/btnRemoveFileIcon (viewBox=0 0 32 32) {\nuse (xlink:href=#RioniteFileUpload__iconTrash)\n}\n}\n}\n}\n}\ndiv/dropZone (error={error}) {\ndiv/dropZoneErrorMessageWrapper {\nspan/dropZoneErrorMessage {\n'{errorMessage}'\n}\n}\nspan/dropZoneText {\n'{constructor.i18n.dropFilesHereOr}'\nbr\nbutton/btnSelectFiles {\n'{constructor.i18n.btnSelectFilesText}'\n}\n}\n}\ninput/filesInput (type=file, multiple)\n}");
+/* harmony default export */ __webpack_exports__["default"] = ("@section/inner {\nul/fileList {\n@Repeat (for=file of files, trackBy=id) {\nli/file {\ndiv/filePreviewWrapper {\n@IfThen (if=file.readed) {\n@IfThen (if=file.isImage) {\nimg/filePreview (_src={file.dataURI})\n}\n@IfElse (if=file.isImage) {\nsvg/fileIcon (viewBox=0 0 32 32) {\nuse (xlink:href=#RioniteFileUpload__iconFile)\n}\n}\n}\n@IfElse (if=file.readed) {\nsvg/fileLoadingIcon (viewBox=0 0 32 32) {\nuse (xlink:href=#RioniteFileUpload__iconSpinner)\n}\n}\n}\nspan/fileText {\n'{file.name}'\n}\nbutton/btnRemoveFile {\nsvg/btnRemoveFileIcon (viewBox=0 0 32 32) {\nuse (xlink:href=#RioniteFileUpload__iconTrash)\n}\n}\n}\n}\n}\ndiv/dropZone (error={error}) {\ndiv/dropZoneErrorMessageWrapper {\nspan/dropZoneErrorMessage {\n'{errorMessage}'\n}\n}\nspan/dropZoneText {\n'{constructor.i18n.dropFilesHereOr}'\nbr\nbutton/btnSelectFiles {\n'{constructor.i18n.btnSelectFilesText}'\n}\n}\n}\ninput/filesInput (type=file, multiple)\n}");
 
 /***/ })
 /******/ ]);

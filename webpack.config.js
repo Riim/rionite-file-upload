@@ -82,7 +82,6 @@ module.exports = env => {
 			'@riim/gettext',
 			'@riim/next-uid',
 			'cellx',
-			'cellx-indexed-collections',
 			'reflect-metadata',
 			'rionite'
 		],

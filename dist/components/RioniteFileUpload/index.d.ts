@@ -1,4 +1,4 @@
-import { IndexedList } from 'cellx-indexed-collections';
+import { ObservableList } from 'cellx';
 import { BaseComponent } from 'rionite';
 import './icons/RioniteFileUpload__iconFile.svg';
 import './icons/RioniteFileUpload__iconSpinner.svg';
@@ -12,7 +12,7 @@ export declare class RioniteFileUpload extends BaseComponent {
     paramTotalSizeLimit: number;
     _reFileType: RegExp;
     _size: number;
-    files: IndexedList<ReadableFile>;
+    files: ObservableList<ReadableFile>;
     errorMessage: string | null;
     error: boolean;
     initialize(): void;

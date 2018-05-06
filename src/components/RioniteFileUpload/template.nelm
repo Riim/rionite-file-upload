@@ -25,7 +25,7 @@ ul/fileList {
 				'{file.name}'
 			}
 
-			button/btnRemoveFile (data-file-id={file.id}) {
+			button/btnRemoveFile {
 				svg/btnRemoveFileIcon (viewBox=0 0 32 32) {
 					use (xlink:href=#RioniteFileUpload__iconTrash)
 				}
