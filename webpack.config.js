@@ -19,13 +19,15 @@ module.exports = env => {
 	];
 
 	return {
+		mode: 'none',
+
 		entry: {
 			index: './src/index.ts'
 		},
 
 		output: {
-			filename: '[name].js',
 			path: path.join(__dirname, 'dist'),
+			filename: '[name].js',
 			library: '[name]',
 			libraryTarget: 'umd'
 		},
@@ -94,9 +96,9 @@ module.exports = env => {
 			console: false,
 			global: false,
 			process: false,
-			Buffer: false,
 			__filename: false,
 			__dirname: false,
+			Buffer: false,
 			setImmediate: false
 		}
 	};

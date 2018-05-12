@@ -20,6 +20,8 @@ const i18n = {
 };
 
 @Component<RioniteFileUpload>({
+	elementIs: 'RioniteFileUpload',
+
 	i18n,
 	template,
 

@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("cellx"), require("reflect-metadata"), require("@riim/escape-regexp"), require("@riim/gettext"), require("rionite"), require("@riim/next-uid"));
+		module.exports = factory(require("reflect-metadata"), require("@riim/escape-regexp"), require("@riim/gettext"), require("cellx"), require("rionite"), require("@riim/next-uid"));
 	else if(typeof define === 'function' && define.amd)
-		define(["cellx", "reflect-metadata", "@riim/escape-regexp", "@riim/gettext", "rionite", "@riim/next-uid"], factory);
+		define(["reflect-metadata", "@riim/escape-regexp", "@riim/gettext", "cellx", "rionite", "@riim/next-uid"], factory);
 	else if(typeof exports === 'object')
-		exports["index"] = factory(require("cellx"), require("reflect-metadata"), require("@riim/escape-regexp"), require("@riim/gettext"), require("rionite"), require("@riim/next-uid"));
+		exports["index"] = factory(require("reflect-metadata"), require("@riim/escape-regexp"), require("@riim/gettext"), require("cellx"), require("rionite"), require("@riim/next-uid"));
 	else
-		root["index"] = factory(root["cellx"], root["reflect-metadata"], root["@riim/escape-regexp"], root["@riim/gettext"], root["rionite"], root["@riim/next-uid"]);
-})(typeof self !== 'undefined' ? self : this, function(__WEBPACK_EXTERNAL_MODULE_0__, __WEBPACK_EXTERNAL_MODULE_2__, __WEBPACK_EXTERNAL_MODULE_4__, __WEBPACK_EXTERNAL_MODULE_5__, __WEBPACK_EXTERNAL_MODULE_6__, __WEBPACK_EXTERNAL_MODULE_12__) {
+		root["index"] = factory(root["reflect-metadata"], root["@riim/escape-regexp"], root["@riim/gettext"], root["cellx"], root["rionite"], root["@riim/next-uid"]);
+})(window, function(__WEBPACK_EXTERNAL_MODULE__1__, __WEBPACK_EXTERNAL_MODULE__3__, __WEBPACK_EXTERNAL_MODULE__4__, __WEBPACK_EXTERNAL_MODULE__5__, __WEBPACK_EXTERNAL_MODULE__6__, __WEBPACK_EXTERNAL_MODULE__12__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -54,6 +54,11 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 		}
 /******/ 	};
 /******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
 /******/ 	// getDefaultExport function for compatibility with non-harmony modules
 /******/ 	__webpack_require__.n = function(module) {
 /******/ 		var getter = module && module.__esModule ?
@@ -69,37 +74,32 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
 /******/
+/******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE_0__;
-
-/***/ }),
-/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-__webpack_require__(2);
-var RioniteFileUpload_1 = __webpack_require__(3);
+__webpack_require__(1);
+var RioniteFileUpload_1 = __webpack_require__(2);
 exports.RioniteFileUpload = RioniteFileUpload_1.RioniteFileUpload;
 exports.ReadableFile = RioniteFileUpload_1.ReadableFile;
 
 
 /***/ }),
-/* 2 */
+/* 1 */
 /***/ (function(module, exports) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
+module.exports = __WEBPACK_EXTERNAL_MODULE__1__;
 
 /***/ }),
-/* 3 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -124,9 +124,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var escape_regexp_1 = __webpack_require__(4);
-var gettext_1 = __webpack_require__(5);
-var cellx_1 = __webpack_require__(0);
+var escape_regexp_1 = __webpack_require__(3);
+var gettext_1 = __webpack_require__(4);
+var cellx_1 = __webpack_require__(5);
 var rionite_1 = __webpack_require__(6);
 __webpack_require__(7);
 __webpack_require__(8);
@@ -248,6 +248,7 @@ var RioniteFileUpload = /** @class */ (function (_super) {
     ], RioniteFileUpload.prototype, "paramTotalSizeLimit", void 0);
     RioniteFileUpload = __decorate([
         rionite_1.Component({
+            elementIs: 'RioniteFileUpload',
             i18n: i18n,
             template: template_nelm_1.default,
             domEvents: {
@@ -267,22 +268,28 @@ exports.RioniteFileUpload = RioniteFileUpload;
 
 
 /***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__3__;
+
+/***/ }),
 /* 4 */
 /***/ (function(module, exports) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE_4__;
+module.exports = __WEBPACK_EXTERNAL_MODULE__4__;
 
 /***/ }),
 /* 5 */
 /***/ (function(module, exports) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE_5__;
+module.exports = __WEBPACK_EXTERNAL_MODULE__5__;
 
 /***/ }),
 /* 6 */
 /***/ (function(module, exports) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE_6__;
+module.exports = __WEBPACK_EXTERNAL_MODULE__6__;
 
 /***/ }),
 /* 7 */
@@ -337,7 +344,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var next_uid_1 = __webpack_require__(12);
-var cellx_1 = __webpack_require__(0);
+var cellx_1 = __webpack_require__(5);
 var imageTypePrefix = 'image/';
 var ReadableFile = /** @class */ (function (_super) {
     __extends(ReadableFile, _super);
@@ -376,14 +383,14 @@ exports.ReadableFile = ReadableFile;
 /* 12 */
 /***/ (function(module, exports) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE_12__;
+module.exports = __WEBPACK_EXTERNAL_MODULE__12__;
 
 /***/ }),
 /* 13 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+__webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("@section/inner {\nul/fileList {\n@Repeat (for=file of files, trackBy=id) {\nli/file {\ndiv/filePreviewWrapper {\n@IfThen (if=file.readed) {\n@IfThen (if=file.isImage) {\nimg/filePreview (_src={file.dataURI})\n}\n@IfElse (if=file.isImage) {\nsvg/fileIcon (viewBox=0 0 32 32) {\nuse (xlink:href=#RioniteFileUpload__iconFile)\n}\n}\n}\n@IfElse (if=file.readed) {\nsvg/fileLoadingIcon (viewBox=0 0 32 32) {\nuse (xlink:href=#RioniteFileUpload__iconSpinner)\n}\n}\n}\nspan/fileText {\n'{file.name}'\n}\nbutton/btnRemoveFile {\nsvg/btnRemoveFileIcon (viewBox=0 0 32 32) {\nuse (xlink:href=#RioniteFileUpload__iconTrash)\n}\n}\n}\n}\n}\ndiv/dropZone (error={error}) {\ndiv/dropZoneErrorMessageWrapper {\nspan/dropZoneErrorMessage {\n'{errorMessage}'\n}\n}\nspan/dropZoneText {\n'{constructor.i18n.dropFilesHereOr}'\nbr\nbutton/btnSelectFiles {\n'{constructor.i18n.btnSelectFilesText}'\n}\n}\n}\ninput/filesInput (type=file, multiple)\n}");
 
 /***/ })
