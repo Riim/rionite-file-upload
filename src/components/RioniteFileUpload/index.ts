@@ -1,5 +1,5 @@
 import { escapeRegExp } from '@riim/escape-regexp';
-import { getText } from '@riim/gettext';
+import { t } from '@riim/gettext';
 import { define, ObservableList } from 'cellx';
 import { BaseComponent, Component, Param } from 'rionite';
 import './icons/RioniteFileUpload__iconFile.svg';
@@ -11,23 +11,13 @@ import template from './template.nelm';
 
 export { ReadableFile };
 
-const i18n = {
-	dropFilesHereOr: getText.t('Перетащите файлы в эту область или'),
-	btnSelectFilesText: getText.t('нажмите для выбора в проводнике'),
-	typeErrorMessage: getText.t('Файл не подходит по типу'),
-	sizeErrorMessage: getText.t('Файл слишком большой'),
-	totalSizeErrorMessage: getText.t('Превышен лимит суммарного размера файлов')
-};
-
 @Component<RioniteFileUpload>({
 	elementIs: 'RioniteFileUpload',
-
-	i18n,
 	template,
 
 	domEvents: {
 		btnRemoveFile: {
-			click(evt, context) {
+			click(_evt, context) {
 				let file: ReadableFile = context.file;
 				this._size -= file.size;
 				this.files.remove(file);
@@ -38,8 +28,10 @@ const i18n = {
 export class RioniteFileUpload extends BaseComponent {
 	@Param({ readonly: true })
 	paramAllowType: string;
-	@Param paramSizeLimit: number;
-	@Param paramTotalSizeLimit: number;
+	@Param
+	paramSizeLimit: number;
+	@Param
+	paramTotalSizeLimit: number;
 
 	_reFileType: RegExp;
 
@@ -93,7 +85,7 @@ export class RioniteFileUpload extends BaseComponent {
 
 	_onDropZoneDragOver(evt: DragEvent) {
 		evt.preventDefault();
-		evt.dataTransfer.dropEffect = 'copy';
+		evt.dataTransfer!.dropEffect = 'copy';
 	}
 
 	_onDropZoneDragLeave(evt: DragEvent) {
@@ -103,7 +95,7 @@ export class RioniteFileUpload extends BaseComponent {
 	_onDropZoneDrop(evt: DragEvent) {
 		evt.preventDefault();
 		(evt.target as HTMLElement).removeAttribute('over');
-		this._addFiles(evt.dataTransfer.files);
+		this._addFiles(evt.dataTransfer!.files);
 	}
 
 	_onDropZoneClick() {
@@ -127,11 +119,11 @@ export class RioniteFileUpload extends BaseComponent {
 			size += file.size;
 
 			if (reFileType && !reFileType.test(file.type)) {
-				errorMessage = i18n.typeErrorMessage;
+				errorMessage = t('Файл не подходит по типу');
 			} else if (sizeLimit && file.size > sizeLimit) {
-				errorMessage = i18n.sizeErrorMessage;
+				errorMessage = t('Файл слишком большой');
 			} else if (totalSizeLimit && size > totalSizeLimit) {
-				errorMessage = i18n.totalSizeErrorMessage;
+				errorMessage = t('Превышен лимит суммарного размера файлов');
 			}
 
 			if (errorMessage) {

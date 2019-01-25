@@ -46,17 +46,32 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// define getter function for harmony exports
 /******/ 	__webpack_require__.d = function(exports, name, getter) {
 /******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, {
-/******/ 				configurable: false,
-/******/ 				enumerable: true,
-/******/ 				get: getter
-/******/ 			});
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
 /******/ 		}
 /******/ 	};
 /******/
 /******/ 	// define __esModule on exports
 /******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
 /******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
 /******/ 	};
 /******/
 /******/ 	// getDefaultExport function for compatibility with non-harmony modules
@@ -105,9 +120,12 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__1__;
 "use strict";
 
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -135,13 +153,6 @@ __webpack_require__(10);
 var ReadableFile_1 = __webpack_require__(11);
 exports.ReadableFile = ReadableFile_1.ReadableFile;
 var template_nelm_1 = __webpack_require__(13);
-var i18n = {
-    dropFilesHereOr: gettext_1.getText.t('Перетащите файлы в эту область или'),
-    btnSelectFilesText: gettext_1.getText.t('нажмите для выбора в проводнике'),
-    typeErrorMessage: gettext_1.getText.t('Файл не подходит по типу'),
-    sizeErrorMessage: gettext_1.getText.t('Файл слишком большой'),
-    totalSizeErrorMessage: gettext_1.getText.t('Превышен лимит суммарного размера файлов')
-};
 var RioniteFileUpload = /** @class */ (function (_super) {
     __extends(RioniteFileUpload, _super);
     function RioniteFileUpload() {
@@ -212,13 +223,13 @@ var RioniteFileUpload = /** @class */ (function (_super) {
             var file = files[i];
             size += file.size;
             if (reFileType && !reFileType.test(file.type)) {
-                errorMessage = i18n.typeErrorMessage;
+                errorMessage = gettext_1.t('Файл не подходит по типу');
             }
             else if (sizeLimit && file.size > sizeLimit) {
-                errorMessage = i18n.sizeErrorMessage;
+                errorMessage = gettext_1.t('Файл слишком большой');
             }
             else if (totalSizeLimit && size > totalSizeLimit) {
-                errorMessage = i18n.totalSizeErrorMessage;
+                errorMessage = gettext_1.t('Превышен лимит суммарного размера файлов');
             }
             if (errorMessage) {
                 this.errorMessage = errorMessage;
@@ -249,11 +260,10 @@ var RioniteFileUpload = /** @class */ (function (_super) {
     RioniteFileUpload = __decorate([
         rionite_1.Component({
             elementIs: 'RioniteFileUpload',
-            i18n: i18n,
             template: template_nelm_1.default,
             domEvents: {
                 btnRemoveFile: {
-                    click: function (evt, context) {
+                    click: function (_evt, context) {
                         var file = context.file;
                         this._size -= file.size;
                         this.files.remove(file);
@@ -333,9 +343,12 @@ module.exports = (function(d) {
 "use strict";
 
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -387,11 +400,9 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__12__;
 
 /***/ }),
 /* 13 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("@section/inner {\nul/fileList {\n@Repeat (for=file of files, trackBy=id) {\nli/file {\ndiv/filePreviewWrapper {\n@IfThen (if=file.readed) {\n@IfThen (if=file.isImage) {\nimg/filePreview (_src={file.dataURI})\n}\n@IfElse (if=file.isImage) {\nsvg/fileIcon (viewBox=0 0 32 32) {\nuse (xlink:href=#RioniteFileUpload__iconFile)\n}\n}\n}\n@IfElse (if=file.readed) {\nsvg/fileLoadingIcon (viewBox=0 0 32 32) {\nuse (xlink:href=#RioniteFileUpload__iconSpinner)\n}\n}\n}\nspan/fileText {\n'{file.name}'\n}\nbutton/btnRemoveFile {\nsvg/btnRemoveFileIcon (viewBox=0 0 32 32) {\nuse (xlink:href=#RioniteFileUpload__iconTrash)\n}\n}\n}\n}\n}\ndiv/dropZone (error={error}) {\ndiv/dropZoneErrorMessageWrapper {\nspan/dropZoneErrorMessage {\n'{errorMessage}'\n}\n}\nspan/dropZoneText {\n'{constructor.i18n.dropFilesHereOr}'\nbr\nbutton/btnSelectFiles {\n'{constructor.i18n.btnSelectFilesText}'\n}\n}\n}\ninput/filesInput (type=file, multiple)\n}");
+module.exports = "@section/inner {\nul/fileList {\n@Repeat (for=file of files, trackBy=id) {\nli/file {\ndiv/filePreviewWrapper {\n@IfThen (if=file.readed) {\n@IfThen (if=file.isImage) {\nimg/filePreview (_src={file.dataURI})\n}\n@IfElse (if=file.isImage) {\nsvg/fileIcon (viewBox=0 0 32 32) {\nuse (xlink:href=#RioniteFileUpload__iconFile)\n}\n}\n}\n@IfElse (if=file.readed) {\nsvg/fileLoadingIcon (viewBox=0 0 32 32) {\nuse (xlink:href=#RioniteFileUpload__iconSpinner)\n}\n}\n}\nspan/fileText {\n'{file.name}'\n}\nbutton/btnRemoveFile {\nsvg/btnRemoveFileIcon (viewBox=0 0 32 32) {\nuse (xlink:href=#RioniteFileUpload__iconTrash)\n}\n}\n}\n}\n}\ndiv/dropZone (error={error}) {\ndiv/dropZoneErrorMessageWrapper {\nspan/dropZoneErrorMessage {\n'{errorMessage}'\n}\n}\nspan/dropZoneText {\n'{\"Перетащите файлы в эту область или\" |t }'\nbr\nbutton/btnSelectFiles {\n'{\"нажмите для выбора в проводнике\" |t }'\n}\n}\n}\ninput/filesInput (type=file, multiple)\n}"
 
 /***/ })
 /******/ ]);

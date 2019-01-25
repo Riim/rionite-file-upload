@@ -42,11 +42,11 @@ div/dropZone (error={error}) {
 	}
 
 	span/dropZoneText {
-		'{constructor.i18n.dropFilesHereOr}'
+		'{"Перетащите файлы в эту область или" |t }'
 		br
 
 		button/btnSelectFiles {
-			'{constructor.i18n.btnSelectFilesText}'
+			'{"нажмите для выбора в проводнике" |t }'
 		}
 	}
 }
