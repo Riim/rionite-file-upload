@@ -1,7 +1,5 @@
-@section/inner {
-
 ul/fileList {
-	@Repeat (for=file of files, trackBy=id) {
+	@Repeat (for=file in files, trackBy=id) {
 		li/file {
 			div/filePreviewWrapper {
 				@IfThen (if=file.readed) {
@@ -52,5 +50,3 @@ div/dropZone (error={error}) {
 }
 
 input/filesInput (type=file, multiple)
-
-}
