@@ -119,19 +119,6 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__1__;
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -142,40 +129,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var escape_regexp_1 = __webpack_require__(3);
-var gettext_1 = __webpack_require__(4);
-var cellx_1 = __webpack_require__(5);
-var rionite_1 = __webpack_require__(6);
+const escape_regexp_1 = __webpack_require__(3);
+const gettext_1 = __webpack_require__(4);
+const cellx_1 = __webpack_require__(5);
+const rionite_1 = __webpack_require__(6);
 __webpack_require__(7);
 __webpack_require__(8);
 __webpack_require__(9);
 __webpack_require__(10);
-var ReadableFile_1 = __webpack_require__(11);
+const ReadableFile_1 = __webpack_require__(11);
 exports.ReadableFile = ReadableFile_1.ReadableFile;
-var template = __webpack_require__(13);
-var RioniteFileUpload = /** @class */ (function (_super) {
-    __extends(RioniteFileUpload, _super);
-    function RioniteFileUpload() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this._size = 0;
-        return _this;
+const template = __webpack_require__(13);
+let RioniteFileUpload = class RioniteFileUpload extends rionite_1.BaseComponent {
+    constructor() {
+        super(...arguments);
+        this._size = 0;
     }
-    RioniteFileUpload.prototype.initialize = function () {
+    initialize() {
         this.files = new cellx_1.ObservableList();
         if (this.paramAllowType) {
-            this._reFileType = RegExp("^(?:" + this.paramAllowType
+            this._reFileType = RegExp(`^(?:${this.paramAllowType
                 .split(',')
-                .map(function (type) { return escape_regexp_1.escapeRegExp(type.trim()); })
+                .map(type => escape_regexp_1.escapeRegExp(type.trim()))
                 .join('|')
                 .split('\\*')
-                .join('.*') + ")$");
+                .join('.*')})$`);
         }
         cellx_1.define(this, {
             errorMessage: null,
             error: false
         });
-    };
-    RioniteFileUpload.prototype.elementAttached = function () {
+    }
+    elementAttached() {
         this.listenTo(this.$('filesInput'), 'change', this._onFilesInputChange);
         this.listenTo(this.$('dropZone'), {
             dragenter: this._onDropZoneDragEnter,
@@ -184,43 +169,43 @@ var RioniteFileUpload = /** @class */ (function (_super) {
             drop: this._onDropZoneDrop,
             click: this._onDropZoneClick
         });
-    };
-    RioniteFileUpload.prototype._onFilesInputChange = function (evt) {
+    }
+    _onFilesInputChange(evt) {
         this._addFiles(evt.target.files);
         evt.target.value = '';
-    };
-    RioniteFileUpload.prototype._onDropZoneDragEnter = function (evt) {
+    }
+    _onDropZoneDragEnter(evt) {
         this.error = false;
         evt.target.setAttribute('over', '');
-    };
-    RioniteFileUpload.prototype._onDropZoneDragOver = function (evt) {
+    }
+    _onDropZoneDragOver(evt) {
         evt.preventDefault();
         evt.dataTransfer.dropEffect = 'copy';
-    };
-    RioniteFileUpload.prototype._onDropZoneDragLeave = function (evt) {
+    }
+    _onDropZoneDragLeave(evt) {
         evt.target.removeAttribute('over');
-    };
-    RioniteFileUpload.prototype._onDropZoneDrop = function (evt) {
+    }
+    _onDropZoneDrop(evt) {
         evt.preventDefault();
         evt.target.removeAttribute('over');
         this._addFiles(evt.dataTransfer.files);
-    };
-    RioniteFileUpload.prototype._onDropZoneClick = function () {
+    }
+    _onDropZoneClick() {
         if (this.error) {
             this.error = false;
         }
         else {
             this.$('filesInput').click();
         }
-    };
-    RioniteFileUpload.prototype._addFiles = function (files) {
-        var sizeLimit = this.paramSizeLimit;
-        var totalSizeLimit = this.paramTotalSizeLimit;
-        var reFileType = this._reFileType;
-        var size = this._size;
-        var errorMessage;
-        for (var i = 0, l = files.length; i < l; i++) {
-            var file = files[i];
+    }
+    _addFiles(files) {
+        let sizeLimit = this.paramSizeLimit;
+        let totalSizeLimit = this.paramTotalSizeLimit;
+        let reFileType = this._reFileType;
+        let size = this._size;
+        let errorMessage;
+        for (let i = 0, l = files.length; i < l; i++) {
+            let file = files[i];
             size += file.size;
             if (reFileType && !reFileType.test(file.type)) {
                 errorMessage = gettext_1.t('Файл не подходит по типу');
@@ -238,42 +223,41 @@ var RioniteFileUpload = /** @class */ (function (_super) {
             }
         }
         this._size = size;
-        for (var i = 0, l = files.length; i < l; i++) {
-            var readableFile = new ReadableFile_1.ReadableFile(files[i]);
+        for (let i = 0, l = files.length; i < l; i++) {
+            let readableFile = new ReadableFile_1.ReadableFile(files[i]);
             readableFile.read();
             this.files.add(readableFile);
         }
         return true;
-    };
-    __decorate([
-        rionite_1.Param({ readonly: true }),
-        __metadata("design:type", String)
-    ], RioniteFileUpload.prototype, "paramAllowType", void 0);
-    __decorate([
-        rionite_1.Param,
-        __metadata("design:type", Number)
-    ], RioniteFileUpload.prototype, "paramSizeLimit", void 0);
-    __decorate([
-        rionite_1.Param,
-        __metadata("design:type", Number)
-    ], RioniteFileUpload.prototype, "paramTotalSizeLimit", void 0);
-    RioniteFileUpload = __decorate([
-        rionite_1.Component({
-            elementIs: 'RioniteFileUpload',
-            template: template,
-            domEvents: {
-                btnRemoveFile: {
-                    click: function (_evt, context) {
-                        var file = context.file;
-                        this._size -= file.size;
-                        this.files.remove(file);
-                    }
+    }
+};
+__decorate([
+    rionite_1.Param({ readonly: true }),
+    __metadata("design:type", String)
+], RioniteFileUpload.prototype, "paramAllowType", void 0);
+__decorate([
+    rionite_1.Param,
+    __metadata("design:type", Number)
+], RioniteFileUpload.prototype, "paramSizeLimit", void 0);
+__decorate([
+    rionite_1.Param,
+    __metadata("design:type", Number)
+], RioniteFileUpload.prototype, "paramTotalSizeLimit", void 0);
+RioniteFileUpload = __decorate([
+    rionite_1.Component({
+        elementIs: 'RioniteFileUpload',
+        template,
+        domEvents: {
+            btnRemoveFile: {
+                click(_evt, context) {
+                    let file = context.file;
+                    this._size -= file.size;
+                    this.files.remove(file);
                 }
             }
-        })
-    ], RioniteFileUpload);
-    return RioniteFileUpload;
-}(rionite_1.BaseComponent));
+        }
+    })
+], RioniteFileUpload);
 exports.RioniteFileUpload = RioniteFileUpload;
 
 
@@ -342,53 +326,37 @@ module.exports = (function(d) {
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var next_uid_1 = __webpack_require__(12);
-var cellx_1 = __webpack_require__(5);
-var imageTypePrefix = 'image/';
-var ReadableFile = /** @class */ (function (_super) {
-    __extends(ReadableFile, _super);
-    function ReadableFile(file) {
-        var _this = _super.call(this) || this;
-        _this.file = file;
-        _this.id = next_uid_1.nextUID();
-        _this.type = file.type;
-        _this.isImage = file.type.slice(0, imageTypePrefix.length) == imageTypePrefix;
-        _this.name = file.name;
-        _this.size = file.size;
-        cellx_1.define(_this, {
+const next_uid_1 = __webpack_require__(12);
+const cellx_1 = __webpack_require__(5);
+const imageTypePrefix = 'image/';
+class ReadableFile extends cellx_1.EventEmitter {
+    constructor(file) {
+        super();
+        this.file = file;
+        this.id = next_uid_1.nextUID();
+        this.type = file.type;
+        this.isImage = file.type.slice(0, imageTypePrefix.length) == imageTypePrefix;
+        this.name = file.name;
+        this.size = file.size;
+        cellx_1.define(this, {
             currentlyReading: false,
             readed: false
         });
-        return _this;
     }
-    ReadableFile.prototype.read = function () {
-        var reader = (this.reader = new FileReader());
+    read() {
+        let reader = (this.reader = new FileReader());
         reader.addEventListener('load', this._onReaderLoad.bind(this));
         this.currentlyReading = true;
         reader.readAsBinaryString(this.file);
-    };
-    ReadableFile.prototype._onReaderLoad = function (evt) {
-        var binaryString = (this.binaryString = evt.target.result);
-        this.dataURI = "data:" + this.type + ";base64," + btoa(binaryString);
+    }
+    _onReaderLoad(evt) {
+        let binaryString = (this.binaryString = evt.target.result);
+        this.dataURI = `data:${this.type};base64,${btoa(binaryString)}`;
         this.currentlyReading = false;
         this.readed = true;
-    };
-    return ReadableFile;
-}(cellx_1.EventEmitter));
+    }
+}
 exports.ReadableFile = ReadableFile;
 
 
