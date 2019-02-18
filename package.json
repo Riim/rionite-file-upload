@@ -1,6 +1,6 @@
 {
   "name": "rionite-file-upload",
-  "version": "0.34.0-alpha.0",
+  "version": "0.34.0",
   "description": "",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
