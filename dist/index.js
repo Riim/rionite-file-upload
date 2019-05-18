@@ -139,7 +139,7 @@ __webpack_require__(9);
 __webpack_require__(10);
 const ReadableFile_1 = __webpack_require__(11);
 exports.ReadableFile = ReadableFile_1.ReadableFile;
-const template = __webpack_require__(13);
+const template_rnt_1 = __webpack_require__(13);
 let RioniteFileUpload = class RioniteFileUpload extends rionite_1.BaseComponent {
     constructor() {
         super(...arguments);
@@ -246,7 +246,7 @@ __decorate([
 RioniteFileUpload = __decorate([
     rionite_1.Component({
         elementIs: 'RioniteFileUpload',
-        template,
+        template: template_rnt_1.default,
         domEvents: {
             btnRemoveFile: {
                 click(_evt, context) {
@@ -368,9 +368,11 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__12__;
 
 /***/ }),
 /* 13 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "ul/fileList {\n@Repeat (for=file in files, trackBy=id) {\nli/file {\ndiv/filePreviewWrapper {\n@IfThen (if=file.readed) {\n@IfThen (if=file.isImage) {\nimg/filePreview (_src={file.dataURI})\n}\n@IfElse (if=file.isImage) {\nsvg/fileIcon (viewBox=0 0 32 32) {\nuse (xlink:href=#RioniteFileUpload__iconFile)\n}\n}\n}\n@IfElse (if=file.readed) {\nsvg/fileLoadingIcon (viewBox=0 0 32 32) {\nuse (xlink:href=#RioniteFileUpload__iconSpinner)\n}\n}\n}\nspan/fileText {\n'{file.name}'\n}\nbutton/btnRemoveFile {\nsvg/btnRemoveFileIcon (viewBox=0 0 32 32) {\nuse (xlink:href=#RioniteFileUpload__iconTrash)\n}\n}\n}\n}\n}\ndiv/dropZone (error={error}) {\ndiv/dropZoneErrorMessageWrapper {\nspan/dropZoneErrorMessage {\n'{errorMessage}'\n}\n}\nspan/dropZoneText {\n'{\"Перетащите файлы в эту область или\" |t }'\nbr\nbutton/btnSelectFiles {\n'{\"нажмите для выбора в проводнике\" |t }'\n}\n}\n}\ninput/filesInput (type=file, multiple)"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("ul/fileList {\n@Repeat (for=file in files, trackBy=id) {\nli/file {\ndiv/filePreviewWrapper {\n@IfThen (if=file.readed) {\n@IfThen (if=file.isImage) {\nimg/filePreview (_src={file.dataURI})\n}\n@IfElse (if=file.isImage) {\nsvg/fileIcon (viewBox=0 0 32 32) {\nuse (xlink:href=#RioniteFileUpload__iconFile)\n}\n}\n}\n@IfElse (if=file.readed) {\nsvg/fileLoadingIcon (viewBox=0 0 32 32) {\nuse (xlink:href=#RioniteFileUpload__iconSpinner)\n}\n}\n}\nspan/fileText {\n'{file.name}'\n}\nbutton/btnRemoveFile {\nsvg/btnRemoveFileIcon (viewBox=0 0 32 32) {\nuse (xlink:href=#RioniteFileUpload__iconTrash)\n}\n}\n}\n}\n}\ndiv/dropZone (error={error}) {\ndiv/dropZoneErrorMessageWrapper {\nspan/dropZoneErrorMessage {\n'{errorMessage}'\n}\n}\nspan/dropZoneText {\n'{\"Перетащите файлы в эту область или\" |t }'\nbr\nbutton/btnSelectFiles {\n'{\"нажмите для выбора в проводнике\" |t }'\n}\n}\n}\ninput/filesInput (type=file, multiple)");
 
 /***/ })
 /******/ ]);

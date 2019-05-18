@@ -7,7 +7,7 @@ import './icons/RioniteFileUpload__iconSpinner.svg';
 import './icons/RioniteFileUpload__iconTrash.svg';
 import './index.css';
 import { ReadableFile } from './ReadableFile';
-import template = require('./template.rnt');
+import template from './template.rnt';
 
 export { ReadableFile };
 
