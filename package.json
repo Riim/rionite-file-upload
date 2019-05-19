@@ -27,8 +27,7 @@
     "postcss-css-variables": "^0.12.0",
     "postcss-csso": "^3.0.0",
     "postcss-loader": "^3.0.0",
-    "postcss-nested": "^4.1.2",
-    "postcss-rionite-component": "^0.36.19",
+    "postcss-rionite-component": "^0.37.0",
     "raw-loader": "^2.0.0",
     "simple-css-loader": "^0.1.1",
     "simple-svg-loader": "^1.2.4",
@@ -45,6 +44,6 @@
     "@riim/next-uid": "^1.0.0",
     "cellx": "^1.7.96",
     "reflect-metadata": "^0.1.13",
-    "rionite": "^0.36.18"
+    "rionite": "^0.37.0"
   }
 }

@@ -1,30 +1,30 @@
-ul/fileList {
+ul:fileList {
 	@Repeat (for=file in files, trackBy=id) {
-		li/file {
-			div/filePreviewWrapper {
+		li:file {
+			div:filePreviewWrapper {
 				@IfThen (if=file.readed) {
 					@IfThen (if=file.isImage) {
-						img/filePreview (_src={file.dataURI})
+						img:filePreview (_src={file.dataURI})
 					}
 					@IfElse (if=file.isImage) {
-						svg/fileIcon (viewBox=0 0 32 32) {
+						svg:fileIcon (viewBox=0 0 32 32) {
 							use (xlink:href=#RioniteFileUpload__iconFile)
 						}
 					}
 				}
 				@IfElse (if=file.readed) {
-					svg/fileLoadingIcon (viewBox=0 0 32 32) {
+					svg:fileLoadingIcon (viewBox=0 0 32 32) {
 						use (xlink:href=#RioniteFileUpload__iconSpinner)
 					}
 				}
 			}
 
-			span/fileText {
+			span:fileText {
 				'{file.name}'
 			}
 
-			button/btnRemoveFile {
-				svg/btnRemoveFileIcon (viewBox=0 0 32 32) {
+			button:btnRemoveFile {
+				svg:btnRemoveFileIcon (viewBox=0 0 32 32) {
 					use (xlink:href=#RioniteFileUpload__iconTrash)
 				}
 			}
@@ -32,21 +32,21 @@ ul/fileList {
 	}
 }
 
-div/dropZone (error={error}) {
-	div/dropZoneErrorMessageWrapper {
-		span/dropZoneErrorMessage {
+div:dropZone (error={error}) {
+	div:dropZoneErrorMessageWrapper {
+		span:dropZoneErrorMessage {
 			'{errorMessage}'
 		}
 	}
 
-	span/dropZoneText {
+	span:dropZoneText {
 		'{"Перетащите файлы в эту область или" |t }'
 		br
 
-		button/btnSelectFiles {
+		button:btnSelectFiles {
 			'{"нажмите для выбора в проводнике" |t }'
 		}
 	}
 }
 
-input/filesInput (type=file, multiple)
+input:filesInput (type=file, multiple)
